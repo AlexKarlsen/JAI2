@@ -1,3 +1,10 @@
+.card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
 /* materialize global css reset for demo puprose */
 markdown {
     ::ng-deep {

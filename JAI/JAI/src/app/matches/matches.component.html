@@ -1,8 +1,8 @@
-<mat-card *ngIf="matches; else loading">
+<mat-card class="card" *ngIf="nextMatch; else loading">
     <mat-card-title>Næste Hjemmestævne</mat-card-title>
-    <mat-card-subtitle>{{matches[0].date | date: 'fullDate':''}}</mat-card-subtitle>
+    <mat-card-subtitle>{{nextMatch.date | date: 'fullDate':''}}</mat-card-subtitle>
     <!-- variable binding -->
-    <markdown [data]="matches[0].content"></markdown>
+    <markdown [data]="nextMatch.content"></markdown>
 
     <mat-card-actions>
         <button mat-stroked-button color="primary" routerLink="/matches">

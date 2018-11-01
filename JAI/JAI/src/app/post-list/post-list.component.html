@@ -1,17 +1,25 @@
 <mat-card *ngIf="posts; else loading">
   <mat-card-title>Nyheder</mat-card-title>
-  <ngx-slick-carousel *ngIf="posts; else loading" class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)">
-    <mat-card ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)"
-      class="slide inner-card" fxLayout="column">
+  <ngx-slick-carousel *ngIf="posts; else loading" class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+    (init)="slickInit($event)">
+    <div ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
+    <!-- <mat-card height="100%" class="slide inner-card" fxLayout="column"> -->
       <mat-card-title>{{post.title}}</mat-card-title>
-      <img style="padding:20px" mat-card-lg-image class="img" mat-card-image *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
-      <mat-card-content>
-        <p>{{post.summary}}</p>
-      </mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column">
+        <img style="padding:20px" mat-card-lg-image class="img" mat-card-image *ngFor="let img of post.mainImage" src="{{ img.url }}"
+          alt="">
+          <div fxFlex="10%">
+
+          </div>
+        <mat-card-content fxFlex="60%">
+          <p>{{post.summary}}</p>
+        </mat-card-content>
+      </div>
       <!-- <mat-card-actions>
         <button mat-raised-button>Læs artikel</button>
       </mat-card-actions> -->
-    </mat-card>
+    <!-- </mat-card> -->
+  </div>
   </ngx-slick-carousel>
   <div>
 
@@ -20,6 +28,6 @@
 
 <ng-template #loading>
   <mat-card>
-      <mat-spinner [color]="secondary"></mat-spinner>
+    <mat-spinner [color]="secondary"></mat-spinner>
   </mat-card>
 </ng-template>
