@@ -1,0 +1,14 @@
+<mat-card *ngIf="matches; else loading">
+    <mat-card-title>Kommende Kampe</mat-card-title>
+    <div *ngFor="let match of matches">
+    <mat-card-subtitle >{{match.date | date: 'fullDate':''}}</mat-card-subtitle>
+    <!-- variable binding -->
+    <markdown [data]="match.content"></markdown>
+  </div>
+  </mat-card>
+  
+  <ng-template #loading>
+    <mat-card>
+      <mat-spinner [color]="secondary"></mat-spinner>
+    </mat-card>
+  </ng-template>

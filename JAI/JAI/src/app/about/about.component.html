@@ -1,0 +1,11 @@
+<mat-card *ngIf="content; else loading">
+  <!-- variable binding -->
+  <markdown [data]="content.content"></markdown>
+  <app-map></app-map>
+</mat-card>
+
+<ng-template #loading>
+  <mat-card>
+    <mat-spinner [color]="secondary"></mat-spinner>
+  </mat-card>
+</ng-template>

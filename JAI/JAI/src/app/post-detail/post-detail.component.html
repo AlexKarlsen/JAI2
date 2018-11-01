@@ -1,0 +1,19 @@
+<div *ngIf="post">
+  <mat-card >
+    <mat-card-header>
+    <mat-card-title> 
+      <h1>{{ post.title }} </h1>
+    </mat-card-title>
+    </mat-card-header> 
+    <!--<img style="max-width:100%" *ngFor="let img of post.fields.media" src="{{ img.fields.file.url }}" />-->
+    <mat-card-content> 
+      <!-- <markdown ngPreserveWhitespaces>{{post.fields.content}} </markdown> -->
+      <p> {{post.content}} </p>
+    </mat-card-content>
+    <mat-card-footer>
+      <time>
+        Opdateret: {{ post.date | date: 'shortDate'}}
+      </time>
+    </mat-card-footer>
+  </mat-card> 
+</div>

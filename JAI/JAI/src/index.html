@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JAI Håndbold</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/icon/JAI_logo_vektor_sk_rm.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+</head>
+<body>
+  <app-root>
+    <!--App-root and load screen-->
+    <style>
+        app-root {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      
+          color: white;
+          text-transform: uppercase;
+          font-family: -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              Oxygen-Sans,
+              Ubuntu,
+              Cantarell,
+              Helvetica,
+              sans-serif;
+          font-size: 2.5em;
+          text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        body {
+          background: lightblue;
+          margin: 0;
+          padding: 0;
+        }
+      
+        @keyframes dots {
+          50% {
+            transform: translateY(-.4rem);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+      
+        .d {
+          animation: dots 1.5s ease-out infinite;
+        }
+        .d-2 {
+          animation-delay: .5s;
+        }
+        .d-3 {
+          animation-delay: 1s;
+        }
+        </style>
+          <div fxLayout="column">
+            <div class="logo" style="padding-top: 30%">
+              <img src="./assets/icon/JAI_logo.png"/>
+            </div>
+            <div class="loadText" style="text-align: center">
+              Loading<span class="d">.</span><span class="d d-2">.</span><span class="d d-3">.</span>
+            </div>
+          </div>
+  </app-root>
+</body>
+</html>
