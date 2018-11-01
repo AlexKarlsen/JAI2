@@ -1,19 +1,19 @@
 <mat-card class="card" *ngIf="nextMatch; else loading">
-    <mat-card-title>Næste Hjemmestævne</mat-card-title>
-    <mat-card-subtitle>{{nextMatch.date | date: 'fullDate':''}}</mat-card-subtitle>
-    <!-- variable binding -->
-    <markdown [data]="nextMatch.content"></markdown>
+  <mat-card-title>Næste Hjemmestævne</mat-card-title>
+  <mat-card-subtitle>{{nextMatch.date | date: 'fullDate':''}}</mat-card-subtitle>
+  <!-- variable binding -->
+  <markdown [data]="nextMatch.content"></markdown>
 
-    <mat-card-actions>
-        <button mat-stroked-button color="primary" routerLink="/matches">
+  <mat-card-actions>
+    <button mat-stroked-button color="primary" routerLink="/matches">
 
-            Kommende Kampe
-        </button>
-      </mat-card-actions>
+      Kommende Kampe
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #loading>
+  <mat-card>
+    <mat-spinner [color]="secondary"></mat-spinner>
   </mat-card>
-  
-  <ng-template #loading>
-    <mat-card>
-      <mat-spinner [color]="secondary"></mat-spinner>
-    </mat-card>
-  </ng-template>
+</ng-template>
