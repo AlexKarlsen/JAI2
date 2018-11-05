@@ -36,6 +36,7 @@ import { LocationComponent } from './location/location.component';
 import { TrainingComponent } from './training/training.component';
 import { InstagramComponent } from './instagram/instagram.component';
 import { VisionComponent } from './vision/vision.component';
+import { PartiesComponent } from './parties/parties.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -77,7 +78,8 @@ export function markedOptions(): MarkedOptions {
     LocationComponent,
     TrainingComponent,
     InstagramComponent,
-    VisionComponent
+    VisionComponent,
+    PartiesComponent
   ],
   imports: [
     BrowserModule,

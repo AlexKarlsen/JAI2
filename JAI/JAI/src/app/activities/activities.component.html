@@ -1,35 +1,64 @@
 <mat-card>
   <mat-card-title>{{content.title}}</mat-card-title>
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngIf="party">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Personal data
+          {{party[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          Type your name and age
+          {{party[0].date | date: 'fullDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
+      {{party[0].description}}
     </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
+
+    <mat-expansion-panel *ngIf="common">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Self aware panel
+          {{common[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+          {{common[0].date | date: 'fullDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
+      {{common[0].description}}
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="games">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{games[0].title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{games[0].date | date: 'fullDate':''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{games[0].description}}
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="work">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{work[0].title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{work[0].date | date: 'fullDate':''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{work[0].description}}
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="refTable">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{refTable[0].title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{refTable[0].date | date: 'fullDate':''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{refTable[0].description}}
     </mat-expansion-panel>
   </mat-accordion>
 </mat-card>

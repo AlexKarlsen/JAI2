@@ -1,9 +1,6 @@
-* {
+mat-card {
     box-sizing: border-box;
-    background-color: #fa2a2a;
-    height: 100%;
-    width: 100%;
-    padding: 6em 0 6em 0;
+    background-color: #f1f1f1;
 }
 
 mat-card-title {

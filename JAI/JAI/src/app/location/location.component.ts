@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
-
-  panelOpenState = false;
   constructor() { }
 
   ngOnInit() {
