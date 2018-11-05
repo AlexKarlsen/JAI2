@@ -31,6 +31,11 @@ import { registerLocaleData } from '@angular/common';
 import localeDa from '@angular/common/locales/da';
 import localeDaExtra from '@angular/common/locales/extra/da';
 import { MatchesListComponent } from './matches-list/matches-list.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { LocationComponent } from './location/location.component';
+import { TrainingComponent } from './training/training.component';
+import { InstagramComponent } from './instagram/instagram.component';
+import { VisionComponent } from './vision/vision.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -67,7 +72,12 @@ export function markedOptions(): MarkedOptions {
     ContactComponent,
     PostArchiveComponent,
     MatchesComponent,
-    MatchesListComponent
+    MatchesListComponent,
+    ActivitiesComponent,
+    LocationComponent,
+    TrainingComponent,
+    InstagramComponent,
+    VisionComponent
   ],
   imports: [
     BrowserModule,
