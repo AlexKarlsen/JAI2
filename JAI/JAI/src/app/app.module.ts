@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatExpansionModule, MatFormFieldModule } from '@angular/material';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { FacebookModule } from 'ngx-facebook';
@@ -96,6 +96,8 @@ export function markedOptions(): MarkedOptions {
     MatButtonModule, 
     MatListModule, 
     MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatFormFieldModule,
     SlickCarouselModule,
     MarkdownModule.forRoot({
       markedOptions: {
