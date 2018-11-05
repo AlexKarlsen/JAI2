@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private _fl: FlamelinkService) { }
 
   ngOnInit() {
-    this._fl.getApp().content.subscribe('homepage', { populate: ['banner'] }, (error, data) => {
+    this._fl.getApp().content.subscribe('homepage', { populate: ['banner', 'bannermobile'] }, (error, data) => {
       if (error) {
         console.error(error);
       }
