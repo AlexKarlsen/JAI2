@@ -8,9 +8,11 @@ import { FlamelinkService } from '../flamelink.service';
 })
 export class ActivitiesComponent implements OnInit {
 
+  panelOpenState = false;
+
   constructor(private _fl: FlamelinkService) {}
   content: any;
-  ngOnInit(){
+  ngOnInit() {
   this._fl.getApp().content.subscribe('activities', (error, data) => {
     if (error) {
       console.error(error);
