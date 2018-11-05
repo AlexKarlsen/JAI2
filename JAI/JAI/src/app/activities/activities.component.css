@@ -1,0 +1,10 @@
+* {
+    background-color: #fa2a2a;
+    height: 100%;
+    width: 100%;
+    padding: 8em 0 8em 0;
+}
+
+h2 {
+    text-transform: uppercase;
+}

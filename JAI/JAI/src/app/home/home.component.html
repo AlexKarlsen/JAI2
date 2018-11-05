@@ -3,12 +3,16 @@
     {{content.title}}
   </mat-card-title>
   <img fxHide.xs="true" width="100%" src="{{content.banner[0].url}}" />
-  <img fxShow.xs="true" width="100%" src="{{content.bannermobile[0].url}}" />
+  <img fxHide.gt-xs="true" width="100%" src="{{content.bannermobile[0].url}}" />
 </mat-card>
 <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
   <app-post-list fxFlex="50%"></app-post-list>
   <app-matches fxFlex="50%"></app-matches>
 </div>
+<app-activities></app-activities>
+<app-location></app-location>
+<app-training></app-training>
+<app-vision></app-vision>
 <app-contact></app-contact>
 <ng-template #loading>
   <mat-card>
