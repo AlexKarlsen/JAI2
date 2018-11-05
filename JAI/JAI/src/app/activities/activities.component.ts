@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlamelinkService } from '../flamelink.service';
 
 @Component({
   selector: 'app-activities',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _fl: FlamelinkService) {}
+  content: any;
+  ngOnInit(){
+  this._fl.getApp().content.subscribe('activities', (error, data) => {
+    if (error) {
+      console.error(error);
+    }
 
-  ngOnInit() {
+    this.content = data;
+    console.log(this.content);
+  });
   }
-
 }
