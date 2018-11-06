@@ -1,8 +1,16 @@
-<agm-map *ngIf="MapCenter" [longitude]="MapCenter.longitude" [latitude]="MapCenter.latitude" [zoom]="12">
-  <agm-marker *ngFor="let marker of MapMarkers" [longitude]="marker.longitude" [latitude]="marker.latitude">
-      <agm-info-window [isOpen]="true">
-          <h3>{{marker.name}}</h3>
-          <p>{{marker.address}}</p>
-      </agm-info-window>
-  </agm-marker>
-</agm-map>
+<mat-spinner *ngIf="!map_loaded"></mat-spinner>
+<mat-card>
+    <div class="container" fxLayout="row">
+        <button mat-raised-button *ngFor="let marker of MapMarkers" (click)="changeMarker(marker)">{{marker.name}}</button>
+    </div>
+    <agm-map *ngIf="MapCenter" (mapReady)="onMapReady()" [longitude]="MapCenter.longitude" [latitude]="MapCenter.latitude"
+        [zoom]="12">
+        <agm-marker *ngFor="let marker of MapMarkers" [longitude]="marker.longitude" [latitude]="marker.latitude">
+            <agm-info-window [isOpen]="marker.show">
+                <h3>{{marker.name}}</h3>
+                <p>{{marker.address}}</p>
+            </agm-info-window>
+        </agm-marker>
+
+    </agm-map>
+</mat-card>

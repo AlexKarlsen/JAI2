@@ -1,4 +1,4 @@
-<mat-card *ngIf="posts; else loading">
+<mat-card class="card" *ngIf="posts; else loading">
   <mat-card-title>Nyheder</mat-card-title>
   <ngx-slick-carousel *ngIf="posts; else loading" class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
     (init)="slickInit($event)">

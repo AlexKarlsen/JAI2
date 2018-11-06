@@ -1,3 +1,10 @@
-<p>
-  training works!
-</p>
+<mat-card class="card" *ngIf="times; else loading">
+  <markdown [data]="times.content"></markdown>
+</mat-card>
+
+
+<ng-template #loading>
+    <mat-card>
+      <mat-spinner [color]="secondary"></mat-spinner>
+    </mat-card>
+  </ng-template>

@@ -6,14 +6,21 @@
   <img fxHide.gt-xs="true" width="100%" src="{{content.bannermobile[0].url}}" />
 </mat-card>
 <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
-  <app-post-list fxFlex="50%"></app-post-list>
-  <app-matches fxFlex="50%"></app-matches>
+  <app-post-list fxFlex="60%"></app-post-list>
+  <app-activities fxFlex="40%"></app-activities>
+  <!--<app-matches fxFlex="50%"></app-matches>-->
 </div>
-<app-activities></app-activities>
-<app-location></app-location>
-<app-training></app-training>
-<app-vision></app-vision>
-<app-contact></app-contact>
+<div class="container" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap>
+    <div fxFlex="60%">
+        <app-training fxLayout="column"></app-training>
+        <app-contact></app-contact>
+    </div>
+    
+    <app-location fxFlex="40%"></app-location>
+</div>
+
+<!--<app-vision></app-vision>-->
+
 <ng-template #loading>
   <mat-card>
     <mat-spinner></mat-spinner>

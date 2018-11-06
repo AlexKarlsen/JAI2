@@ -1,13 +1,13 @@
-<mat-card>
+<mat-card class="card" *ngIf="content; else loading">
   <mat-card-title>{{content.title}}</mat-card-title>
-  <mat-accordion>
+  <mat-accordion  >
     <mat-expansion-panel *ngIf="party">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{party[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{party[0].date | date: 'fullDate':''}}
+          {{party[0].date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{party[0].description}}
@@ -19,22 +19,23 @@
           {{common[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{common[0].date | date: 'fullDate':''}}
+          {{common[0].date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{common[0].description}}
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="games">
+    <mat-expansion-panel *ngIf="nextGame">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{games[0].title}}
+          Næste Hjemmestævne
         </mat-panel-title>
         <mat-panel-description>
-          {{games[0].date | date: 'fullDate':''}}
+            {{nextGame.date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      {{games[0].description}}
+      {{nextGame.date | date: 'fullDate':''}}
+      <markdown [data]="nextGame.content"></markdown>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="work">
@@ -43,7 +44,7 @@
           {{work[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{work[0].date | date: 'fullDate':''}}
+          {{work[0].date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{work[0].description}}
@@ -55,10 +56,15 @@
           {{refTable[0].title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{refTable[0].date | date: 'fullDate':''}}
+          {{refTable[0].date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{refTable[0].description}}
     </mat-expansion-panel>
   </mat-accordion>
 </mat-card>
+<ng-template #loading>
+    <mat-card>
+      <mat-spinner [color]="secondary"></mat-spinner>
+    </mat-card>
+  </ng-template>

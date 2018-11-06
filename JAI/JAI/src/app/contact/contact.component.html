@@ -1,8 +1,8 @@
 <mat-card *ngIf="content; else loading">
   <div class="container" fxLayout="row" fxLayout.xs="column">
     <!-- variable binding -->
-    <markdown fxFlex="70%" [data]="content.content"></markdown>
-    <app-facebook-page-plugin class="fb" fxFlex="25%"></app-facebook-page-plugin>
+    <markdown fxFlex="50%" [data]="content.content"></markdown>
+    <app-facebook-page-plugin class="fb" fxFlex.gt-xs="40%"></app-facebook-page-plugin>
   </div>
 </mat-card>
 
