@@ -36,6 +36,10 @@
       </mat-expansion-panel-header>
       {{nextGame.date | date: 'fullDate':''}}
       <markdown [data]="nextGame.content"></markdown>
+      <button mat-stroked-button color="primary" routerLink="/matches">
+
+        Kommende Kampe
+      </button>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="work">
