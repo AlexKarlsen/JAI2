@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +11,7 @@ export class NavBarComponent implements OnInit {
 
   items: [];
   constructor(private _fs: FlamelinkService) { }
-
+  mode = 'over';
   ngOnInit() {
     this._fs.getApp().nav.subscribe('topbar', (error, data) => {
       if (error) {

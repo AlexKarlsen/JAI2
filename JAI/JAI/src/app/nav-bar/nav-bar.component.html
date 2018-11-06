@@ -1,17 +1,23 @@
-<div>
-  <mat-toolbar style="background-color: lightblue; color:white">
-    <a routerLink="/home">
-      <img src="../../assets/icon/JAI_logo_vektor_sk_rm.svg" style="height: 100px" />
-    </a>
-    <span>JAI Håndbold</span>
-
-    <button mat-icon-button [mat-menu-trigger-for]="menu">
-      <mat-icon>more_vert</mat-icon>
+<mat-toolbar class="app-toolbar" style="background-color: lightblue; color:white">
+  <mat-toolbar-row class="burgerMenu">
+      <button mat-button routerLink="/home">
+      <img  src="../../assets/icon/JAI_logo.png" style="height: 55px" />
+      </button>
+    <span class="title">JAI Håndbold</span>
+    <button  type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-  </mat-toolbar>
-  <mat-menu x-position="before" #menu="matMenu">
-    <a *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="router-link-active">
-      <button mat-menu-item>{{item.title}}</button>
-    </a>
-  </mat-menu>
-</div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="over" position="end" role="navigation">
+    <mat-nav-list>
+        <span mat-list-item></span>
+        <a mat-list-item *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="router-link-active">{{item.title}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

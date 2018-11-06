@@ -6,8 +6,10 @@
     [zoom]="12">
     <agm-marker *ngFor="let marker of MapMarkers" [longitude]="marker.longitude" [latitude]="marker.latitude">
         <agm-info-window [isOpen]="marker.show">
-            <h3>{{marker.name}}</h3>
-            <p>{{marker.address}}</p>
+            <address>
+                <h3>{{marker.name}}</h3>
+                <p>{{marker.address}}</p>
+            </address>
         </agm-info-window>
     </agm-marker>
 

@@ -17,7 +17,6 @@ export class MapComponent implements OnInit {
   };
   MapMarkers = [
     {
-      id: 1,
       name: "Annexhallen",
       address: "Bethesdavej 29, 8200 Aarhus N",
       latitude: 56.1776591,
@@ -25,7 +24,6 @@ export class MapComponent implements OnInit {
       show: true
     },
     {
-      id: 2,
       name: "Ellevangskolen",
       address: "Jellebakken 17, 8240 Risskov",
       latitude: 56.203428,
@@ -33,7 +31,6 @@ export class MapComponent implements OnInit {
       show: false
     },
     {
-      id 3,
       name: "Ellekærhallen",
       address: "Jernaldervej 5, 8210 Aarhus V",
       latitude: 56.169821,
