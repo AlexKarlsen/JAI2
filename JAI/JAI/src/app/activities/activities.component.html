@@ -1,32 +1,36 @@
 <mat-card class="card" *ngIf="content; else loading">
   <mat-card-title>{{content.title}}</mat-card-title>
-  <mat-accordion  >
-    <mat-expansion-panel *ngIf="party">
+  <mat-accordion  class="example-headers-align">
+    
+    <mat-expansion-panel *ngIf="party" hideToggle>
       <mat-expansion-panel-header>
+          <mat-icon><img width="24px" src="../../assets/icon/kisspng-social-dance-bachata-cuban-salsa-kizomba-dance-icon-5b3b0883e80c11.8557855915305954599505.png"></mat-icon>
         <mat-panel-title>
-          {{party[0].title}}
+          {{party.title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{party[0].date | date: 'shortDate':''}}
+          {{party.date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      {{party[0].description}}
+      {{party.description}}
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="common">
+    <mat-expansion-panel *ngIf="common" hideToggle>
       <mat-expansion-panel-header>
+          <mat-icon>map</mat-icon>
         <mat-panel-title>
-          {{common[0].title}}
+          {{common.title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{common[0].date | date: 'shortDate':''}}
+          {{common.date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      {{common[0].description}}
+      {{common.description}}
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="nextGame">
+    <mat-expansion-panel *ngIf="nextGame" hideToggle>
       <mat-expansion-panel-header>
+          <mat-icon class="fa fa-soccer-ball-o" style="font-size:24px"></mat-icon>
         <mat-panel-title>
           Næste Hjemmestævne
         </mat-panel-title>
@@ -42,25 +46,27 @@
       </button>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="work">
+    <mat-expansion-panel *ngIf="work" hideToggle>
       <mat-expansion-panel-header>
+          <mat-icon><img width="24px" src="../../assets/icon/set-cv2-06-512.png"></mat-icon>
         <mat-panel-title>
-          {{work[0].title}}
+          {{work.title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{work[0].date | date: 'shortDate':''}}
+          {{work.date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      {{work[0].description}}
+      {{work.description}}
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="refTable">
+    <mat-expansion-panel *ngIf="refTable" hideToggle>
       <mat-expansion-panel-header>
+          <mat-icon>map</mat-icon>
         <mat-panel-title>
-          {{refTable[0].title}}
+          {{refTable.title}}
         </mat-panel-title>
         <mat-panel-description>
-          {{refTable[0].date | date: 'shortDate':''}}
+          {{refTable.date | date: 'shortDate':''}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{refTable[0].description}}

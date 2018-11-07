@@ -1,16 +1,20 @@
-<mat-spinner *ngIf="!map_loaded"></mat-spinner>
-<div class="container" fxLayout="row">
-    <button mat-raised-button *ngFor="let marker of MapMarkers" (click)="changeMarker(marker)">{{marker.name}}</button>
+<div *ngIf="Arenas; else loading">
+<div class="container" fxLayout="row" >
+    <button mat-raised-button *ngFor="let marker of Arenas" (click)="changeMarker(marker)">{{marker.name}}</button>
 </div>
-<agm-map *ngIf="MapCenter" (mapReady)="onMapReady()" [longitude]="MapCenter.longitude" [latitude]="MapCenter.latitude"
+<agm-map *ngIf="mapCenter" (mapReady)="onMapReady()" [longitude]="mapCenter.longitude" [latitude]="mapCenter.latitude"
     [zoom]="12">
-    <agm-marker *ngFor="let marker of MapMarkers" [longitude]="marker.longitude" [latitude]="marker.latitude">
-        <agm-info-window [isOpen]="marker.show">
+    <agm-marker *ngFor="let marker of Arenas" [longitude]="marker.location.lng" [latitude]="marker.location.lat">
+        <agm-info-window [isOpen]="marker.showOnMaps">
             <address>
                 <h3>{{marker.name}}</h3>
                 <p>{{marker.address}}</p>
+                <button mat-raised-button color="accent"><a [href]="marker.mapsLink" target="_blank" >Find vej</a></button>
             </address>
         </agm-info-window>
     </agm-marker>
-
 </agm-map>
+</div>
+<ng-template #loading>
+      <mat-spinner [color]="secondary"></mat-spinner>
+  </ng-template>

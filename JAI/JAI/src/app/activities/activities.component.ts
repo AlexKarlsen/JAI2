@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
 
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -15,14 +16,15 @@ export class ActivitiesComponent implements OnInit {
   work: any;
   refTable: any;
   content: any;
+  
 
   constructor(private _fl: FlamelinkService) {}
-  
+
+
   ngOnInit() {
     this.SubscribeToActivities()
-  
   }
-
+  
   SubscribeToActivities() {
     this._fl.getApp().content.subscribe('activities', (error, data) => {
       if (error) {
@@ -34,13 +36,14 @@ export class ActivitiesComponent implements OnInit {
     });
 
     // Get next party
-    this._fl.getApp().content.subscribe('party', { limitToLast: 1},(error, data) => {
+    this._fl.getApp().content.subscribe('party',(error, data) => {
       if (error) {
         console.error(error);
       }
   
-      this.party = Object.keys(data).map(key => data[ key ]);
-      console.log(this.party);
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      console.log(tmp);
+      this.party = this.clientSideFilterSort(tmp)[0];
     });
 
     // Get next common activity
@@ -49,8 +52,8 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
   
-      this.common = Object.keys(data).map(key => data[ key ]);
-      console.log(this.common);
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      this.common = this.clientSideFilterSort(tmp)[0];
     });
 
     // Get the next game
@@ -61,25 +64,7 @@ export class ActivitiesComponent implements OnInit {
 
       let matches = Object.keys(data).map(key => data[ key ]);
 
-      // Today object
-      let date = new Date();
-      // Client-side filtering waiting for flamelink update
-      // Iterate to fid expired events
-      matches.forEach(i => {
-        // If expired remove element
-        if(new Date(i.date) < date){
-          // Splice removes at index, count
-          matches.splice(i,1);
-        }
-      });
-      // Client-side sorting waiting for flamelink update
-      matches.sort(function(a,b){
-        // Turn your strings into dates, and then subtract them
-        // to get a value that is either negative, positive, or zero.
-        // a - b to sort ascending
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      });
-      this.nextGame = matches[0];
+      this.nextGame = this.clientSideFilterSort(matches)[0];
     });
 
     // Get the next volunteer work event
@@ -88,8 +73,8 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
   
-      this.work = Object.keys(data).map(key => data[ key ]);
-      console.log(this.work);
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      this.work = this.clientSideFilterSort(tmp)[0];
     });
 
     // Referee Table
@@ -98,8 +83,31 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
   
-      this.refTable = Object.keys(data).map(key => data[ key ]);
-      console.log(this.refTable);
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      this.refTable = this.clientSideFilterSort(tmp)[0];
     });
+  }
+
+  clientSideFilterSort(tmp) {
+     // Today object
+     let date = new Date();
+     // Client-side filtering waiting for flamelink update
+     // Iterate to fid expired events
+     tmp.forEach(i => {
+       // If expired remove element
+       if(new Date(i.date) < date){
+         // Splice removes at index, count
+         tmp.splice(i,1);
+       }
+     });
+     // Client-side sorting waiting for flamelink update
+     tmp.sort(function(a,b){
+       // Turn your strings into dates, and then subtract them
+       // to get a value that is either negative, positive, or zero.
+       // a - b to sort ascending
+       return new Date(a.date).getTime() - new Date(b.date).getTime();
+     });
+     console.log('client-side sort and filter');
+     return tmp;
   }
 }

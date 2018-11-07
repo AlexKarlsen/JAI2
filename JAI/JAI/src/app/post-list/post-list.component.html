@@ -13,12 +13,16 @@
           </div>
         <mat-card-content fxFlex="60%">
           <p>{{post.summary}}</p>
+          <div class="author">
+            <p>{{post.author}} {{post.date | date: 'shortDate':''}}</p>
+          </div>
         </mat-card-content>
       </div>
       <!-- <mat-card-actions>
         <button mat-raised-button>Læs artikel</button>
       </mat-card-actions> -->
     <!-- </mat-card> -->
+    
   </div>
   </ngx-slick-carousel>
   <div>
