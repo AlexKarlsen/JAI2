@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
+import {MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-facebook-page-plugin',
@@ -8,7 +9,7 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 })
 export class FacebookPagePluginComponent implements OnInit {
 
-  constructor(private _fb: FacebookService) { }
+  constructor(private _fb: FacebookService, private dialogRef: MatDialogRef<FacebookPagePluginComponent>) { }
 
   ngOnInit() {
     let initParams: InitParams = {
@@ -19,5 +20,9 @@ export class FacebookPagePluginComponent implements OnInit {
  
     this._fb.init(initParams);
   }
+
+  close() {
+    this.dialogRef.close();
+  } 
 
 }

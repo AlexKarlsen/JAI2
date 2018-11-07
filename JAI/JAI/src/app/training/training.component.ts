@@ -10,16 +10,25 @@ export class TrainingComponent implements OnInit {
 
   times;
   constructor(private _fl: FlamelinkService) { }
-
+  isOdd;
   ngOnInit() {
-    this._fl.getApp().content.subscribe('practiceTimes',(error, data) => {
+    this._fl.getApp().content.subscribe('teams',(error, data) => {
       if (error) {
         console.error(error);
       }
-  
-      this.times = data;
+      this.times = Object.keys(data).map(key => data[ key ]);
+      //this.times = data;
       console.log(this.times);
     });
+
+    var date = new Date();
+    if ((date.getMonth()+1)%2 == 1) {
+      this.isOdd = true;
+    } else {
+      this.isOdd = false;
+    }
+
   }
 
+  displayedColumns: string[] = ['hold', 'dag', 'tid', 'sted'];
 }

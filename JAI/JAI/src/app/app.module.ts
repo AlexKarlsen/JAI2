@@ -117,6 +117,7 @@ export function markedOptions(): MarkedOptions {
     FlexLayoutModule
   ],
   providers: [{provide: LOCALE_ID, useValue: "da-DA" } ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FacebookPagePluginComponent]
 })
 export class AppModule { }

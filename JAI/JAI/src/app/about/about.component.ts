@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
 
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',

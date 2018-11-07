@@ -1,5 +1,33 @@
 <mat-card class="card" *ngIf="times; else loading">
-  <markdown [data]="times.content"></markdown>
+  <mat-card-title>Træningstider</mat-card-title>
+    <mat-table [dataSource]="times" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="hold">
+          <mat-header-cell *matHeaderCellDef> Hold </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="dag">
+          <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
+          <mat-cell *matCellDef="let element"> <ng-container *ngFor="let day of element.practices;"><ng-container *ngIf="day.oddMonth == isOdd">{{day.weekday}}<br /></ng-container> </ng-container></mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tid">
+          <mat-header-cell *matHeaderCellDef> Tid </mat-header-cell>
+          <mat-cell *matCellDef="let element"> <ng-container *ngFor="let day of element.practices"><ng-container *ngIf="day.oddMonth == isOdd">{{day.startTime | slice:0:5}}-{{day.endTime | slice:0:5}} <br /></ng-container></ng-container></mat-cell>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="sted">
+          <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
+          <mat-cell *matCellDef="let element"> <ng-container *ngFor="let day of element.practices"><ng-container *ngIf="day.oddMonth == isOdd">{{day.place}} <br /></ng-container></ng-container></mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
 </mat-card>
 
 

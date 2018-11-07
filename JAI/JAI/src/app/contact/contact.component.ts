@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { FacebookPagePluginComponent } from '../facebook-page-plugin/facebook-page-plugin.component';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +12,7 @@ export class ContactComponent implements OnInit {
 
   content;
 
-  constructor(private _fl: FlamelinkService) { }
+  constructor(private _fl: FlamelinkService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this._fl.getApp().content.subscribe('contact', (error, data) => {
@@ -23,4 +25,16 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.width = '90%';
+    dialogConfig.height = '90%';
+
+    this.dialog.open(FacebookPagePluginComponent, dialogConfig);
+}
 }
