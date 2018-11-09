@@ -29,11 +29,10 @@ export class ContactComponent implements OnInit {
 
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.width = '90%';
-    dialogConfig.height = '90%';
+    dialogConfig.width = '400px';
+    dialogConfig.height = '550px';
 
     this.dialog.open(FacebookPagePluginComponent, dialogConfig);
 }

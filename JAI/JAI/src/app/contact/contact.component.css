@@ -5,3 +5,9 @@
 .fb {
     justify-content: center;
 }
+
+.contacts {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}

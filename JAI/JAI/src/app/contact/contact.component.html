@@ -1,8 +1,10 @@
 <mat-card *ngIf="content; else loading">
-  <div class="container" fxLayout="row" fxLayout.xs="column">
-    <!-- variable binding -->
-    <markdown fxFlex="50%" [data]="content.content"></markdown>
-    <button mat-raised-button (click)="openDialog()">Kontakt os</button>
+  <div class="container">
+    <markdown [data]="content.content"></markdown>
+    <div class="contacts">
+      <img (click)="openDialog()" width="32px" height="32px" src="../../assets/icon/SoMe/f-ogo_RGB_HEX-100.svg">
+      <a href="mailto:lauritzenpihl@gmail.com"><img width="40px" height="40px" src="../../assets/icon/baseline-email-24px.svg"></a>
+    </div>
   </div>
 </mat-card>
 
