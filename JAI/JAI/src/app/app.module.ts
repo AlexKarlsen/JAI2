@@ -37,6 +37,7 @@ import { TrainingComponent } from './training/training.component';
 import { InstagramComponent } from './instagram/instagram.component';
 import { VisionComponent } from './vision/vision.component';
 import { PartiesComponent } from './parties/parties.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -79,7 +80,8 @@ export function markedOptions(): MarkedOptions {
     TrainingComponent,
     InstagramComponent,
     VisionComponent,
-    PartiesComponent
+    PartiesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
