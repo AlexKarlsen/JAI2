@@ -8,6 +8,10 @@
 
 .contacts {
     display: flex;
-    justify-content: space-evenly;
-    padding: 0;
+    justify-content: space-evenly ;
+}
+
+mat-card {
+    background-color: lightblue;
+    color: white;
 }

@@ -1,23 +1,76 @@
 <mat-card class="card" *ngIf="content; else loading">
   <mat-card-title>{{content.title}}</mat-card-title>
-  <mat-accordion  class="example-headers-align">
-    
+  <mat-accordion class="example-headers-align">
+
+    <mat-expansion-panel *ngIf="nextGame" hideToggle>
+      <mat-expansion-panel-header>
+        <div class="mat-content">
+          <mat-icon fxFlex="10%" class="fa fa-soccer-ball-o" style="font-size:24px"></mat-icon>
+          <mat-panel-title fxFlex=30%>
+            Hjemmestævne
+          </mat-panel-title>
+          <mat-panel-description fxFlex="20%">
+            {{nextGame.date | date: 'shortDate':''}}
+          </mat-panel-description>
+        </div>
+      </mat-expansion-panel-header>
+      {{nextGame.date | date: 'fullDate':''}}
+      <table mat-table [dataSource]="nextGame.games">
+
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef> Kl. </th>
+          <td mat-cell *matCellDef="let element"> {{element.time | slice:0:5}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="home">
+          <th mat-header-cell *matHeaderCellDef> JAI </th>
+          <td mat-cell *matCellDef="let element"> {{element.home}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="away">
+          <th mat-header-cell *matHeaderCellDef> Ude </th>
+          <td mat-cell *matCellDef="let element"> {{element.away}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="refTable">
+          <th mat-header-cell *matHeaderCellDef> Dommerbord </th>
+          <td mat-cell *matCellDef="let element"> {{element.refTable}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <button mat-stroked-button color="primary" routerLink="/matches">
+
+        Kommende Kampe
+      </button>
+    </mat-expansion-panel>
+
     <mat-expansion-panel *ngIf="party" hideToggle>
       <mat-expansion-panel-header>
-          <mat-icon><img width="24px" src="../../assets/icon/kisspng-social-dance-bachata-cuban-salsa-kizomba-dance-icon-5b3b0883e80c11.8557855915305954599505.png"></mat-icon>
-        <mat-panel-title>
-          {{party.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{party.date | date: 'shortDate':''}}
-        </mat-panel-description>
+        <div class="mat-content">
+          <mat-icon fxFlex="10%"><img width="24px" src="../../assets/icon/kisspng-social-dance-bachata-cuban-salsa-kizomba-dance-icon-5b3b0883e80c11.8557855915305954599505.png"></mat-icon>
+          <mat-panel-title fxFlex="30%">
+            {{party.title}}
+          </mat-panel-title>
+          <mat-panel-description fxFlex="20%">
+            {{party.date | date: 'shortDate':''}}
+          </mat-panel-description>
+        </div>
       </mat-expansion-panel-header>
       {{party.description}}
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="common" hideToggle>
       <mat-expansion-panel-header>
-          <mat-icon>map</mat-icon>
+        <mat-icon>map</mat-icon>
         <mat-panel-title>
           {{common.title}}
         </mat-panel-title>
@@ -28,40 +81,31 @@
       {{common.description}}
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="nextGame" hideToggle>
-      <mat-expansion-panel-header>
-          <mat-icon class="fa fa-soccer-ball-o" style="font-size:24px"></mat-icon>
-        <mat-panel-title>
-          Næste Hjemmestævne
-        </mat-panel-title>
-        <mat-panel-description>
-            {{nextGame.date | date: 'shortDate':''}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      {{nextGame.date | date: 'fullDate':''}}
-      <markdown [data]="nextGame.content"></markdown>
-      <button mat-stroked-button color="primary" routerLink="/matches">
-
-        Kommende Kampe
-      </button>
-    </mat-expansion-panel>
-
     <mat-expansion-panel *ngIf="work" hideToggle>
       <mat-expansion-panel-header>
-          <mat-icon><img width="24px" src="../../assets/icon/set-cv2-06-512.png"></mat-icon>
-        <mat-panel-title>
-          {{work.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{work.date | date: 'shortDate':''}}
-        </mat-panel-description>
+        <div class="mat-content">
+          <mat-icon fxFlex="10%"><img width="24px" src="../../assets/icon/set-cv2-06-512.png"></mat-icon>
+          <mat-panel-title fxFlex=30%>
+            {{work.title}}
+          </mat-panel-title>
+          <mat-panel-description fxFlex="20%">
+            {{work.date | date: 'shortDate':''}}
+          </mat-panel-description>
+        </div>
       </mat-expansion-panel-header>
-      {{work.description}}
+      <div fxLayout="column">
+      <div>
+        {{work.description}}
+      </div>
+      <div style="text-align: right">
+        <button mat-raised-button><a href="{{work.link}}">Tilmeld dig!</a></button>
+      </div>
+    </div>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="refTable" hideToggle>
       <mat-expansion-panel-header>
-          <mat-icon>map</mat-icon>
+        <mat-icon>map</mat-icon>
         <mat-panel-title>
           {{refTable.title}}
         </mat-panel-title>
@@ -73,8 +117,9 @@
     </mat-expansion-panel>
   </mat-accordion>
 </mat-card>
+
 <ng-template #loading>
-    <mat-card>
-      <mat-spinner [color]="secondary"></mat-spinner>
-    </mat-card>
-  </ng-template>
+  <mat-card>
+    <mat-spinner [color]="secondary"></mat-spinner>
+  </mat-card>
+</ng-template>

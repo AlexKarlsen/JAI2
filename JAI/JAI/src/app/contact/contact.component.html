@@ -1,15 +1,11 @@
-<mat-card *ngIf="content; else loading">
-  <div class="container">
-    <markdown [data]="content.content"></markdown>
-    <div class="contacts">
-      <img (click)="openDialog()" width="32px" height="32px" src="../../assets/icon/SoMe/f-ogo_RGB_HEX-100.svg">
-      <a href="mailto:lauritzenpihl@gmail.com"><img width="40px" height="40px" src="../../assets/icon/baseline-email-24px.svg"></a>
-    </div>
+<div *ngIf="content" class="container">
+  <p>{{content.name}}</p>
+  <p>{{content.address}}</p>
+  <p>{{content.mainArena}}</p>
+  <div class="contacts">
+    <img (click)="openDialog()" style="padding-top: 2px" width="20px" height="20px" src="../../assets/icon/SoMe/f-ogo_RGB_HEX-100.svg">
+    <a href="mailto:{{content.contactEmail}}">
+      <mat-icon width="40px">mail</mat-icon>
+    </a>
   </div>
-</mat-card>
-
-<ng-template #loading>
-    <mat-card>
-      <mat-spinner [color]="secondary"></mat-spinner>
-    </mat-card>
-  </ng-template>
+</div>

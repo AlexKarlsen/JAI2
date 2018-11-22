@@ -2,3 +2,29 @@ footer {
     background-color: lightblue;
     color: white;
 }
+
+.sections{
+    padding: 20px 20px 20px 20px;
+}
+.logo{
+    width: 30%;
+    min-width: 120px;
+    min-width: 120px;
+    max-width: 200px;
+    max-height: 150px;
+    padding: 0 0 20px 0;
+}
+
+ .credits{
+    font-size: 8pt;
+    background-color: lightslategray;
+    color: black;
+    padding: 5px 5px 5px 5px;
+    text-align: right;
+ }
+ .container {
+    justify-content: space-around; 
+    text-align: center;
+    align-content: center;
+    padding: 20px 0 20px 0;
+ }

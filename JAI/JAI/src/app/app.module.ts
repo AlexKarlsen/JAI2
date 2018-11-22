@@ -38,6 +38,9 @@ import { InstagramComponent } from './instagram/instagram.component';
 import { VisionComponent } from './vision/vision.component';
 import { PartiesComponent } from './parties/parties.component';
 import { FooterComponent } from './footer/footer.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { EnglishComponent } from './english/english.component';
+import { TeamsComponent } from './teams/teams.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -81,7 +84,10 @@ export function markedOptions(): MarkedOptions {
     InstagramComponent,
     VisionComponent,
     PartiesComponent,
-    FooterComponent
+    FooterComponent,
+    SponsorsComponent,
+    EnglishComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,

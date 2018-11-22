@@ -6,6 +6,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PostArchiveComponent } from './post-archive/post-archive.component';
 import { MatchesListComponent } from './matches-list/matches-list.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { EnglishComponent } from './english/english.component';
+import { TeamsComponent } from './teams/teams.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +17,10 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'newsarchive', component: PostArchiveComponent },
-  { path: 'matches', component: MatchesListComponent }
+  { path: 'matches', component: MatchesListComponent },
+  { path: 'sponsors', component: SponsorsComponent },
+  { path: 'english', component: EnglishComponent },
+  { path: 'teams', component: TeamsComponent }
 ];
 
 @NgModule({
