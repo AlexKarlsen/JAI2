@@ -17,23 +17,26 @@ import { DataSource } from '@angular/cdk/table';
   ]
 })
 export class TrainingComponent implements OnInit {
+  constructor(private _fl: FlamelinkService) { }
 
   times;
-  constructor(private _fl: FlamelinkService) { }
   isOdd;
+
+  expandedElement: any;
+  displayedColumns: string[] = ['hold', 'dag', 'tid', 'sted'];
   ngOnInit() {
-    this._fl.getApp().content.subscribe('teams',(error, data) => {
+    this._fl.getApp().content.subscribe('teams', (error, data) => {
       if (error) {
         console.error(error);
       }
-      let tmp = Object.keys(data).map(key => data[ key ]);
-      this.times = new ExampleDataSource(tmp)
-      //this.times = data;
+      const tmp = Object.keys(data).map(key => data[ key ]);
+      this.times = new ExampleDataSource(tmp);
+      // this.times = data;
       console.log(this.times);
     });
 
-    var date = new Date();
-    if ((date.getMonth()+1)%2 == 1) {
+    const date = new Date();
+    if ((date.getMonth() + 1) % 2 === 1) {
       this.isOdd = true;
     } else {
       this.isOdd = false;
@@ -43,13 +46,16 @@ export class TrainingComponent implements OnInit {
 
   isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  expandedElement: any;
-  displayedColumns: string[] = ['hold', 'dag', 'tid', 'sted'];
 
-  
 }
 
 export class ExampleDataSource extends DataSource<any> {
+
+  constructor(_data) {
+    super();
+    this.data = _data;
+  }
+  data;
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<Element[]> {
     const rows = [];
@@ -57,11 +63,5 @@ export class ExampleDataSource extends DataSource<any> {
     console.log(rows);
     return of(rows);
   }
-  data;
   disconnect() { }
-
-  constructor(_data) {
-    super();
-    this.data = _data;
-  }
 }

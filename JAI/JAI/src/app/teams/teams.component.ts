@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
+import { DataSource } from '@angular/cdk/table';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-teams',
@@ -17,22 +19,32 @@ export class TeamsComponent implements OnInit {
   constructor(private _fl: FlamelinkService) { }
 
   ngOnInit() {
-    this._fl.getApp().content.subscribe('teams',(error, data) => {
-      if (error) {
-        console.error(error);
-      }
-      let tmp = Object.keys(data).map(key => data[ key ]);
-      this.teams = tmp;
-      //this.times = data;
-      console.log(this.teams);
-    });
 
-    var date = new Date();
-    if ((date.getMonth()+1)%2 == 1) {
+    const date = new Date();
+    if ((date.getMonth() + 1) % 2 === 1) {
       this.isOdd = true;
     } else {
       this.isOdd = false;
     }
+
+    this._fl.getApp().content.subscribe('teams', (error, data) => {
+      if (error) {
+        console.error(error);
+      }
+      const tmp = Object.keys(data).map(key => data[ key ]);
+      this.teams = tmp;
+      this.teams.forEach((item, index) => {
+        console.log(item);
+        item.practices.forEach(j => {
+          if (j.oddMonth !== this.isOdd) {
+            if (index > -1) {
+            this.teams[index].practices.splice(j, 1);
+          }}
+        });
+      });
+      // this.times = data;
+      console.log(this.teams);
+    });
   }
 
 }
