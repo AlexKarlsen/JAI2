@@ -1,0 +1,11 @@
+<div *ngIf="content">
+    <h2>{{content.pageTitle}}</h2>
+    <div class="sponsors" fxLayoutGap="2%">
+      <mat-card *ngFor="let sponsor of content.sponsors">
+        <mat-card-title>{{sponsor.name}}</mat-card-title>
+        <mat-card-content>{{sponsor.description}}</mat-card-content>
+        <img mat-card-image width="70%" src="{{sponsor.imageUrl}}"/>
+        <button mat-raised-button>Besøg Sponsor Website</button>
+      </mat-card>
+    </div>
+  </div>

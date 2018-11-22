@@ -1,0 +1,89 @@
+<div class="teams" *ngIf="teams">
+  <h2>Vores Trupper</h2>
+  <h4>I JAI bruger vi trupsammensætninger. 1.-2. og 3.-4. holdene træner sammen.
+    I denne sektion kan du læse mere om vores hold og trænere.
+  </h4>
+  <mat-card *ngFor="let team of teams; let i=index">
+    <mat-card-title>
+      {{team.name}}
+    </mat-card-title>
+
+    
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{team.team1.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{team.team1.league}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div *ngIf="team.coach1">
+            <h4>Trænere</h4>
+              <div *ngFor="let coach of team.coach1">
+                  <p>{{coach.name}}</p>
+                  <p><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
+                  <p><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
+              </div>
+            </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  {{team.team2.name}}
+              </mat-panel-title>
+              <mat-panel-description>
+                  {{team.team2.league}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <h4>Træning</h4>
+            <div>
+                <table mat-table [dataSource]="team.practices">
+
+                    <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+            
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="day">
+                      <th mat-header-cell *matHeaderCellDef> Dag </th>
+                      <td mat-cell *matCellDef="let element"><ng-container *ngFor="let day of element.practices;">
+                          <ng-container>{{day.weekday}}<br /></ng-container>
+                        </ng-container></td>
+                    </ng-container>
+            
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="time">
+                      <th mat-header-cell *matHeaderCellDef> Tid </th>
+                      <td mat-cell *matCellDef="let element"> <ng-container *ngFor="let day of element.practices">
+                          <ng-container *ngIf="day.oddMonth == isOdd">{{day.startTime | slice:0:5}}-{{day.endTime | slice:0:5}} <br /></ng-container>
+                        </ng-container></td>
+                    </ng-container>
+            
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="place">
+                      <th mat-header-cell *matHeaderCellDef> Sted </th>
+                      <td mat-cell *matCellDef="let element"> {{element.refTable}} </td>
+                    </ng-container>
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+            </div>
+              <div *ngIf="team.coach2">
+                
+                <h4>Trænere</h4>
+                <div *ngFor="let coach of team.coach2">
+                    <p>{{coach.name}}</p>
+                    <p><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
+                    <p><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
+                </div>
+              </div>
+
+          </mat-expansion-panel>
+      </mat-accordion>
+  </mat-card>
+</div>
+
+

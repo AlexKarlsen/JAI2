@@ -1,11 +1,16 @@
-<footer class="mat-typography" flex fxLayout="row" style="justify-content: space-evenly">
-  <div>
-    <p>footer works!</p>
+<footer>
+  <div *ngIf="content" class="mat-typography container" flex fxLayout.gt-xs="row" >
+  <div class="section" fxHide.lt.md="true">
+    <img class="logo" src="../../assets/icon/JAI_logo.png">
   </div>
-  <div>
-    <p>insert footer content here</p>
-    <p>some information</p>
-    <p>idk what goes here</p>
-    <p *ngIf="content">{{content.test}}</p>
+  <div class="section"> 
+    <img class="logo"*ngFor="let img of content.sponsorImage" src="{{ img.url }}"alt="">
+  </div>
+  <div class="contacts">
+      <app-contact></app-contact>
+  </div>
+</div>
+<div *ngIf="content" class="credits">
+    Created by: {{content.credits}}
   </div>
 </footer>

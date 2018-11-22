@@ -22,9 +22,34 @@ mat-expansion-panel-header {
     display: flex;
     justify-content: space-between;
     align-content: center;
+    align-items: center;
+    padding: 5px 5px 0 5px;
   }
 
+table {
+  font-size: xx-small;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  width: 100%;
+}
 
+.mat-cell {
+  padding: 0 0 0 0;
+  font-size: 11px;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+  padding-left: 0px;
+}
+
+td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
+  padding-right: 0px;
+}
+
+.mat-content {
+  justify-content: space-around;
+}
 
   
   /* materialize global css reset for demo puprose */
@@ -39,6 +64,9 @@ mat-expansion-panel-header {
     
         img {
           width: 100%;
+        }
+        tr:nth-child(2n) {
+          background-color: rgba(0,0,0,0.03);
         }
   
         

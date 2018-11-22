@@ -6,7 +6,7 @@
     <!-- <mat-card height="100%" class="slide inner-card" fxLayout="column"> -->
       <mat-card-title>{{post.title}}</mat-card-title>
       <div fxLayout="row" fxLayout.xs="column">
-        <img style="padding:20px" mat-card-lg-image class="img" mat-card-image *ngFor="let img of post.mainImage" src="{{ img.url }}"
+        <img style="padding:20px" mat-card-lg-image *ngFor="let img of post.mainImage" src="{{ img.url }}"
           alt="">
           <div fxFlex="10%">
 

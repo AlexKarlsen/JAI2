@@ -3,3 +3,53 @@
     align-items: stretch;
 }
 
+.banner {
+    filter: sepia(500%) hue-rotate(180deg) saturate(200%) opacity(70%) contrast(50%) blur(2px) brightness(70%);
+}
+
+.banner-gt-xs .img{
+    width: 170px;
+}
+
+/* Container holding the image and the text */
+.banner-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.top-center {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width:95%;
+    transform: translate(-50%, -50%);
+    padding: 5px 5px 5px 5px;
+    box-sizing: border-box;
+    flex: 1;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.bottom-center {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width:95%;
+    transform: translate(-50%, -50%);
+    padding: 5px 5px 5px 5px;
+    box-sizing: border-box;
+    flex: 1;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.center-center-xs {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+}
+
+.center-center-gt-xs {
+    position: absolute;
+    top: 15%;
+    left: 41%;
+}

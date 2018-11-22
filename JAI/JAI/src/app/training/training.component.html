@@ -1,6 +1,6 @@
 <mat-card class="card" *ngIf="times; else loading">
   <mat-card-title>Træningstider</mat-card-title>
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container elevation">
     <mat-table #table [dataSource]="times">
 
 
@@ -50,8 +50,7 @@
               <button mat-button><a *ngIf="detail.element.coach1" href="tel:{{detail.element.coach1[0].phone}}">
                   <mat-icon width="40px">phone</mat-icon>
                 </a></button>
-              <button mat-button><a *ngIf="detail.element.coach1" href="mailto:{{detail.element.coach1[0].mail}}"><img
-                    width="35px" height="35px" src="../../assets/icon/baseline-email-24px.svg"></a></button>
+              <button mat-button><a *ngIf="detail.element.coach1" href="mailto:{{detail.element.coach1[0].mail}}"><mat-icon width="40px" >mail</mat-icon></a></button>
             </div>
           </div>
           <div class="card" fxFlex="50%" style="align-content: flex-start" >
@@ -61,8 +60,7 @@
               <button mat-button><a *ngIf="detail.element.coach2" href="tel:{{detail.element.coach2[0].phone}}">
                   <mat-icon width="40px">phone</mat-icon>
                 </a></button>
-              <button mat-button><a *ngIf="detail.element.coach2" href="mailto:{{detail.element.coach2[0].mail}}"><img
-                    width="35px" height="35px" src="../../assets/icon/baseline-email-24px.svg"></a></button>
+              <button mat-button><a *ngIf="detail.element.coach2" href="mailto:{{detail.element.coach2[0].mail}}"><mat-icon width="40px">mail</mat-icon></a></button>
               <ng-template #elseBlock>Har ikke tilknyttet træner</ng-template>
             </div>
           </div>

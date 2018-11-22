@@ -17,6 +17,7 @@ export class ActivitiesComponent implements OnInit {
   refTable: any;
   content: any;
   
+  displayedColumns: string[] = ['time', 'home', 'away', 'refTable'];
 
   constructor(private _fl: FlamelinkService) {}
 
@@ -57,14 +58,15 @@ export class ActivitiesComponent implements OnInit {
     });
 
     // Get the next game
-    this._fl.getApp().content.subscribe('matches', { orderByChild: 'id', /* startAt: date, limitToLast: 1 */},(error, data) => {
+    this._fl.getApp().content.subscribe('games', { orderByChild: 'id', /* startAt: date, limitToLast: 1 */},(error, data) => {
       if (error) {
         console.error(error);
       }
 
-      let matches = Object.keys(data).map(key => data[ key ]);
+      let games = Object.keys(data).map(key => data[ key ]);
 
-      this.nextGame = this.clientSideFilterSort(matches)[0];
+      this.nextGame = this.clientSideFilterSort(games)[0];
+      console.log(this.nextGame)
     });
 
     // Get the next volunteer work event

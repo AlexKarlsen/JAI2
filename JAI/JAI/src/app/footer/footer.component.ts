@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   constructor(private _fl: FlamelinkService) { }
   content;
   ngOnInit() {
-    this._fl.getApp().content.subscribe('footer', (error, data) => {
+    this._fl.getApp().content.subscribe('footer', {populate: ['sponsorImage']} , (error, data) => {
       if (error) {
         console.error(error);
       }
