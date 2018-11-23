@@ -13,7 +13,7 @@ import { MapCenter } from './MapCenter';
 export class MapComponent implements OnInit {
   map_loaded = false;
 
- 
+
 
   constructor(private _fl: FlamelinkService) { }
   Arenas;
@@ -25,13 +25,13 @@ export class MapComponent implements OnInit {
         console.error(error);
       }
 
-      let tmp = Object.keys(data).map(key => data[ key ]);
+      const tmp = Object.keys(data).map(key => data[ key ]);
 
       // Calculating the mean of the location coordinates
       tmp.forEach(i => {
-        this.mapCenter.latitude += i.location.lat
-        this.mapCenter.longitude += i.location.lng
-      })
+        this.mapCenter.latitude += i.location.lat;
+        this.mapCenter.longitude += i.location.lng;
+      });
       this.mapCenter.longitude = this.mapCenter.longitude / tmp.length;
       this.mapCenter.latitude = this.mapCenter.latitude / tmp.length;
 

@@ -12,26 +12,26 @@ export class MatchesComponent implements OnInit {
   constructor(private _fl: FlamelinkService) { }
 
   ngOnInit() {
-    this._fl.getApp().content.subscribe('matches', { orderByChild: 'id', /* startAt: date, limitToLast: 1 */},(error, data) => {
+    this._fl.getApp().content.subscribe('matches', { orderByChild: 'id', /* startAt: date, limitToLast: 1 */}, (error, data) => {
       if (error) {
         console.error(error);
       }
 
-      let matches = Object.keys(data).map(key => data[ key ]);
+      const matches = Object.keys(data).map(key => data[ key ]);
 
       // Today object
-      let date = new Date();
+      const date = new Date();
       // Client-side filtering waiting for flamelink update
       // Iterate to fid expired events
       matches.forEach(i => {
         // If expired remove element
-        if(new Date(i.date) < date){
+        if (new Date(i.date) < date) {
           // Splice removes at index, count
-          matches.splice(i,1);
+          matches.splice(i, 1);
         }
       });
       // Client-side sorting waiting for flamelink update
-      matches.sort(function(a,b){
+      matches.sort(function(a, b) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
         // a - b to sort ascending

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
+import { HelperService } from '../helper.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ActivitiesComponent implements OnInit {
 
   displayedColumns: string[] = ['time', 'home', 'away', 'refTable'];
 
-  constructor(private _fl: FlamelinkService) {}
+  constructor(private _fl: FlamelinkService, private helper: HelperService) {}
 
 
   ngOnInit() {
@@ -44,7 +45,7 @@ export class ActivitiesComponent implements OnInit {
 
       const tmp = Object.keys(data).map(key => data[ key ]);
       console.log(tmp);
-      this.party = this.clientSideFilterSort(tmp)[0];
+      this.party = this.helper.clientSideFilterSort(tmp)[0];
     });
 
     // Get next common activity
@@ -54,7 +55,7 @@ export class ActivitiesComponent implements OnInit {
       }
 
       const tmp = Object.keys(data).map(key => data[ key ]);
-      this.common = this.clientSideFilterSort(tmp)[0];
+      this.common = this.helper.clientSideFilterSort(tmp)[0];
     });
 
     // Get the next game
@@ -65,7 +66,7 @@ export class ActivitiesComponent implements OnInit {
 
       const games = Object.keys(data).map(key => data[ key ]);
 
-      this.nextGame = this.clientSideFilterSort(games)[0];
+      this.nextGame = this.helper.clientSideFilterSort(games)[0];
       console.log(this.nextGame);
     });
 
@@ -76,7 +77,7 @@ export class ActivitiesComponent implements OnInit {
       }
 
       const tmp = Object.keys(data).map(key => data[ key ]);
-      this.work = this.clientSideFilterSort(tmp)[0];
+      this.work = this.helper.clientSideFilterSort(tmp)[0];
     });
 
     // Referee Table
@@ -86,30 +87,7 @@ export class ActivitiesComponent implements OnInit {
       }
 
       const tmp = Object.keys(data).map(key => data[ key ]);
-      this.refTable = this.clientSideFilterSort(tmp)[0];
+      this.refTable = this.helper.clientSideFilterSort(tmp)[0];
     });
-  }
-
-  clientSideFilterSort(tmp) {
-     // Today object
-     const date = new Date();
-     // Client-side filtering waiting for flamelink update
-     // Iterate to fid expired events
-     tmp.forEach(i => {
-       // If expired remove element
-       if (new Date(i.date) < date) {
-         // Splice removes at index, count
-         tmp.splice(i, 1);
-       }
-     });
-     // Client-side sorting waiting for flamelink update
-     tmp.sort(function(a, b) {
-       // Turn your strings into dates, and then subtract them
-       // to get a value that is either negative, positive, or zero.
-       // a - b to sort ascending
-       return new Date(a.date).getTime() - new Date(b.date).getTime();
-     });
-     console.log('client-side sort and filter');
-     return tmp;
   }
 }

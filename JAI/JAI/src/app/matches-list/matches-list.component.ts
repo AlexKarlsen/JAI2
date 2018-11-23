@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
+import { HelperService } from '../helper.service';
 
 @Component({
   selector: 'app-matches-list',
@@ -8,7 +9,7 @@ import { FlamelinkService } from '../flamelink.service';
 })
 export class MatchesListComponent implements OnInit {
 
-  constructor(private _fl: FlamelinkService) { }
+  constructor(private _fl: FlamelinkService, private helper: HelperService) { }
   matches;
   displayedColumns: string[] = ['time', 'home', 'away', 'refTable'];
   ngOnInit() {
@@ -18,32 +19,8 @@ export class MatchesListComponent implements OnInit {
             console.error(error);
           }
           const tmp = Object.keys(data).map(key => data[ key ]);
-          this.matches = this.clientSideFilterSort(tmp);
+          this.matches = this.helper.clientSideFilterSort(tmp);
           console.log(this.matches);
         });
   }
-
-  clientSideFilterSort(tmp) {
-    // Today object
-    const date = new Date();
-    // Client-side filtering waiting for flamelink update
-    // Iterate to fid expired events
-    tmp.forEach(i => {
-      // If expired remove element
-      if (new Date(i.date) < date) {
-        // Splice removes at index, count
-        tmp.splice(i, 1);
-      }
-    });
-    // Client-side sorting waiting for flamelink update
-    tmp.sort(function(a, b) {
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
-      // a - b to sort ascending
-      return new Date(a.date).getTime() - new Date(b.date).getTime();
-    });
-    console.log('client-side sort and filter');
-    return tmp;
- }
-
 }

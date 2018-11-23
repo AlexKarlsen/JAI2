@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
-import {MatDialog, MatDialogConfig} from "@angular/material";
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import { FacebookPagePluginComponent } from '../facebook-page-plugin/facebook-page-plugin.component';
 
 @Component({

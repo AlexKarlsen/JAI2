@@ -9,20 +9,20 @@ import { DataService } from '../data.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  
+
   posts: any[];
   slideConfig = {
-    "slidesToShow": 1,
-    "slidesToScroll": 1,
-    "dots": true,
-    "infinite": true,
-    "autoplay": true,
-    "autoplaySpeed": 3000
+    'slidesToShow': 1,
+    'slidesToScroll': 1,
+    'dots': true,
+    'infinite': true,
+    'autoplay': true,
+    'autoplaySpeed': 3000
   };
   constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router) { }
 
   ngOnInit() {
-    // This should be updated to only retrieve some of the newest posts 
+    // This should be updated to only retrieve some of the newest posts
     this._fl.getApp().content.subscribe('posts', { orderByValue: 'date', limitToLast: 3, populate: ['mainImage'] }, (error, data) => {
       if (error) {
         console.error(error);
@@ -31,12 +31,12 @@ export class PostListComponent implements OnInit {
       this.posts = Object.keys(data).map(key => data[ key ]);
 
       // Client-side sorting waiting for flamelink update
-      this.posts.sort(function(a,b){
+      this.posts.sort(function(a, b) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
-      console.log(this.posts)
+      console.log(this.posts);
     });
 
   }
@@ -44,7 +44,7 @@ export class PostListComponent implements OnInit {
   // Post click event to see Post-detail component
   onSelect(post): void {
     // Save the data to pass onto the post-detail component
-    this._ds.setData(post)
+    this._ds.setData(post);
     // navigate to component
     this._router.navigate(['/detail/' + post.id]);
   }

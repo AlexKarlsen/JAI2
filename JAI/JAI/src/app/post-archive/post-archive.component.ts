@@ -16,22 +16,22 @@ export class PostArchiveComponent implements OnInit {
   noMore: Boolean = false;
 
   constructor(
-    private _fl: FlamelinkService, 
+    private _fl: FlamelinkService,
     private _ds: DataService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.loadNumberOfPosts(this.LOAD_COUNT_NUMBER);
-  };
+  }
 
   loadMore() {
-    if(this.posts.length != this.LOAD_COUNT_NUMBER){
+    if (this.posts.length !== this.LOAD_COUNT_NUMBER) {
       this.noMore = true;
-    } 
-      this.loadNumberOfPosts(this.LOAD_COUNT_NUMBER)
+    }
+      this.loadNumberOfPosts(this.LOAD_COUNT_NUMBER);
       this.loadCount += this.LOAD_COUNT_NUMBER;
-        
+
   }
 
   // Should be updated to retrieve 10 at a time
@@ -42,11 +42,11 @@ export class PostArchiveComponent implements OnInit {
       }
 
       this.posts = Object.keys(data).map(key => data[ key ]);
-      console.log(this.posts)
+      console.log(this.posts);
     });
   }
 
-  isValid(){
+  isValid() {
     return false;
   }
 

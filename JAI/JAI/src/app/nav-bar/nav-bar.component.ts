@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlamelinkService } from '../flamelink.service';
-import {FormControl} from '@angular/forms';
+import { FlamelinkService } from '../flamelink.service';;
 
 @Component({
   selector: 'app-nav-bar',

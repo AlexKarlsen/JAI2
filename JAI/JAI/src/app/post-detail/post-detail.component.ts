@@ -19,19 +19,18 @@ export class PostDetailComponent implements OnInit {
     if (this._ds.getData() == null) {
       // Get the id from Url path
       this.route.params.subscribe(params => {
-        let id = params['id'];
+        const id = params['id'];
         this._fs.getApp().content.subscribe('posts', id, (error, data) => {
           if (error) {
             console.error(error);
           }
           console.log(data);
-          //this.post = Object.keys(data).map(key => data[key]);
-          //console.log(this.post)
+          // this.post = Object.keys(data).map(key => data[key]);
+          // console.log(this.post)
           this.post = data;
         });
       });
-    }
-    else {
+    } else {
       // Get passed on data from DataService
       this.post = this._ds.getData();
     }

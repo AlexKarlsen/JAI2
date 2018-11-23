@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
-import {MatDialogRef} from "@angular/material";
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-facebook-page-plugin',
@@ -12,17 +12,17 @@ export class FacebookPagePluginComponent implements OnInit {
   constructor(private _fb: FacebookService, private dialogRef: MatDialogRef<FacebookPagePluginComponent>) { }
 
   ngOnInit() {
-    let initParams: InitParams = {
+    const initParams: InitParams = {
       appId: '147541496070957',
       xfbml: true,
       version: 'v2.8'
     };
- 
+
     this._fb.init(initParams);
   }
 
   close() {
     this.dialogRef.close();
-  } 
+  }
 
 }
