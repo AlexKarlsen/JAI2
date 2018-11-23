@@ -3,7 +3,6 @@
   <div class="example-container elevation">
     <mat-table #table [dataSource]="times">
       
-
       <ng-container matColumnDef="hold">
         <mat-header-cell *matHeaderCellDef> Hold </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
@@ -27,7 +26,6 @@
         </mat-cell>
       </ng-container>
 
-
       <ng-container matColumnDef="sted">
         <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -36,10 +34,6 @@
           </ng-container>
         </mat-cell>
       </ng-container>
-
-
-
-
 
       <ng-container matColumnDef="expandedDetail">
         <mat-cell *matCellDef="let detail" fxLayout="row" style="justify-content: space-between; display: flex; align-items: flex-start">

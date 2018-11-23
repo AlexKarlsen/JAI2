@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlamelinkService } from '../flamelink.service';;
+import { FlamelinkService } from '../flamelink.service';
 
 @Component({
   selector: 'app-nav-bar',

@@ -35,5 +35,5 @@ export class ContactComponent implements OnInit {
     dialogConfig.height = '550px';
 
     this.dialog.open(FacebookPagePluginComponent, dialogConfig);
-}
+  }
 }
