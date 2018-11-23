@@ -1,9 +1,39 @@
 <mat-card *ngIf="matches; else loading">
     <mat-card-title>Kommende Kampe</mat-card-title>
     <div *ngFor="let match of matches">
-    <mat-card-subtitle >{{match.date | date: 'fullDate':''}}</mat-card-subtitle>
-    <!-- variable binding -->
-    <markdown [data]="match.content"></markdown>
+        {{match.date | date: 'fullDate':''}}
+    <table mat-table [dataSource]="match.games">
+
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Kl. </th>
+        <td mat-cell *matCellDef="let element"> {{element.time | slice:0:5}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="home">
+        <th mat-header-cell *matHeaderCellDef> JAI </th>
+        <td mat-cell *matCellDef="let element"> {{element.home}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="away">
+        <th mat-header-cell *matHeaderCellDef> Ude </th>
+        <td mat-cell *matCellDef="let element"> {{element.away}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="refTable">
+        <th mat-header-cell *matHeaderCellDef> Dommerbord </th>
+        <td mat-cell *matCellDef="let element"> {{element.refTable}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </div>
   </mat-card>
   

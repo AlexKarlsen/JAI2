@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
-import { DataSource } from '@angular/cdk/table';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-teams',
@@ -37,7 +35,7 @@ export class TeamsComponent implements OnInit {
         console.log(item);
         item.practices.forEach(j => {
           if (j.oddMonth !== this.isOdd) {
-            //this.teams[index].practices.splice(j, 2);
+            // this.teams[index].practices.splice(j, 2);
             this.teams[index].practices = item.practices.filter(p => p.oddMonth === this.isOdd);
           }
         });

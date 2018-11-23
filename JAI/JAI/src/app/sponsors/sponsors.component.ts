@@ -9,7 +9,7 @@ import { FlamelinkService } from '../flamelink.service';
 export class SponsorsComponent implements OnInit {
 
   content;
-  
+
   constructor(private _fl: FlamelinkService) { }
 
   ngOnInit() {
