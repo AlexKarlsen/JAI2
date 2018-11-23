@@ -37,9 +37,9 @@ export class TeamsComponent implements OnInit {
         console.log(item);
         item.practices.forEach(j => {
           if (j.oddMonth !== this.isOdd) {
-            if (index > -1) {
-            this.teams[index].practices.splice(j, 1);
-          }}
+            //this.teams[index].practices.splice(j, 2);
+            this.teams[index].practices = item.practices.filter(p => p.oddMonth === this.isOdd);
+          }
         });
       });
       // this.times = data;
