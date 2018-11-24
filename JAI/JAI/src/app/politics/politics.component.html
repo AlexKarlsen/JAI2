@@ -1,0 +1,36 @@
+<mat-card *ngIf="content">
+  <mat-card-title>
+    {{content.title}}
+  </mat-card-title>
+  <mat-card-content>
+    {{content.content}}
+
+    <mat-card *ngIf="membersPolitics">
+      <mat-card-title>
+        {{membersPolitics.title}}
+      </mat-card-title>
+      <button mat-button *ngIf="!showMembers; else showLess" (click)="toggle('members')">Se mere</button>
+
+      <ng-template #showLess>
+        <button mat-button (click)="toggle('members')">Luk</button>
+        <mat-card-content>
+          <div markdown>{{membersPolitics.content}}</div>
+        </mat-card-content>
+      </ng-template>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title *ngIf="privacyPolitics">
+        {{privacyPolitics.title}}
+      </mat-card-title>
+      <button mat-button *ngIf="!showPrivacy; else showLess" (click)="toggle('privacy')">Se mere</button>
+
+      <ng-template #showLess>
+        <button mat-button (click)="toggle('privacy')">Luk</button>
+        <mat-card-content>
+          <div markdown>{{privacyPolitics.content}}</div>
+        </mat-card-content>
+      </ng-template>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

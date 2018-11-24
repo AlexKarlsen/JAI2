@@ -43,6 +43,7 @@ import { EnglishComponent } from './english/english.component';
 import { TeamsComponent } from './teams/teams.component';
 import { ContactFooterComponent } from './contact-footer/contact-footer.component';
 import { StartGuideComponent } from './start-guide/start-guide.component';
+import { PoliticsComponent } from './politics/politics.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -91,7 +92,8 @@ export function markedOptions(): MarkedOptions {
     EnglishComponent,
     TeamsComponent,
     ContactFooterComponent,
-    StartGuideComponent
+    StartGuideComponent,
+    PoliticsComponent
   ],
   imports: [
     BrowserModule,

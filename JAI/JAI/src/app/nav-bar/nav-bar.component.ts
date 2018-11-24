@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit {
       if (error) {
         console.error(error);
       }
+      console.log(data.items);
       this.items = data.items;
     });
 

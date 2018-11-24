@@ -11,6 +11,7 @@ import { EnglishComponent } from './english/english.component';
 import { TeamsComponent } from './teams/teams.component';
 import { PartiesComponent } from './parties/parties.component';
 import { StartGuideComponent } from './start-guide/start-guide.component';
+import { PoliticsComponent } from './politics/politics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,8 +24,9 @@ const routes: Routes = [
   { path: 'sponsors', component: SponsorsComponent },
   { path: 'english', component: EnglishComponent },
   { path: 'teams', component: TeamsComponent },
-  { path: 'parties', component: PartiesComponent},
-  { path: 'start-guide', component: StartGuideComponent}
+  { path: 'parties', component: PartiesComponent },
+  { path: 'start-guide', component: StartGuideComponent },
+  { path: 'politics', component: PoliticsComponent }
 ];
 
 @NgModule({
