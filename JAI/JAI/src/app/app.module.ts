@@ -5,10 +5,11 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from '@angularfire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { MatGridListModule, MatSidenavModule, MatRadioModule, MatDialogModule, MatCardModule, MatMenuModule, MatTableModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatExpansionModule, MatFormFieldModule } from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import { MatSidenavModule, MatDialogModule, MatCardModule, MatMenuModule, MatTableModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatExpansionModule, MatFormFieldModule } from '@angular/material';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { FacebookModule } from 'ngx-facebook';
@@ -105,17 +106,17 @@ export function markedOptions(): MarkedOptions {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    MatGridListModule, 
-    MatCardModule, 
+    MatGridListModule,
+    MatCardModule,
     MatMenuModule,
     MatSidenavModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatRadioModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatIconModule,
-    MatTableModule, 
-    MatButtonModule, 
-    MatListModule, 
+    MatTableModule,
+    MatButtonModule,
+    MatListModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -132,7 +133,7 @@ export function markedOptions(): MarkedOptions {
     }),
     FlexLayoutModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "da-DA" } ],
+  providers: [{provide: LOCALE_ID, useValue: 'da-DA' } ],
   bootstrap: [AppComponent],
   entryComponents: [FacebookPagePluginComponent]
 })
