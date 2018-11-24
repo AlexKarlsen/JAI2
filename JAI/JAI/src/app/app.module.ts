@@ -41,6 +41,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { EnglishComponent } from './english/english.component';
 import { TeamsComponent } from './teams/teams.component';
+import { ContactFooterComponent } from './contact-footer/contact-footer.component';
+import { StartGuideComponent } from './start-guide/start-guide.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -87,7 +89,9 @@ export function markedOptions(): MarkedOptions {
     FooterComponent,
     SponsorsComponent,
     EnglishComponent,
-    TeamsComponent
+    TeamsComponent,
+    ContactFooterComponent,
+    StartGuideComponent
   ],
   imports: [
     BrowserModule,

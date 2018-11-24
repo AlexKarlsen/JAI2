@@ -20,7 +20,7 @@ export class HelperService {
       }
     });
     // Client-side sorting waiting for flamelink update
-    tmp.sort(function(a, b) {
+    tmp.sort(function (a, b) {
       // Turn your strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
       // a - b to sort ascending
@@ -28,5 +28,17 @@ export class HelperService {
     });
     console.log('client-side sort and filter');
     return tmp;
- }
+  }
+
+  clientSideSortDescending(tmp) {
+    // Client-side sorting waiting for flamelink update
+    tmp.sort(function (a, b) {
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      // a - b to sort ascending
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+    console.log('client-side sort descending');
+    return tmp;
+  }
 }

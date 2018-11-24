@@ -1,4 +1,8 @@
 <div *ngIf="content" class="container">
+  <mat-card>
+    <div markdown>
+      {{content.content}}
+    </div>
   <p>{{content.name}}</p>
   <p>{{content.address}}</p>
   <p>{{content.mainArena}}</p>
@@ -8,4 +12,5 @@
       <mat-icon width="40px">mail</mat-icon>
     </a>
   </div>
+</mat-card>
 </div>

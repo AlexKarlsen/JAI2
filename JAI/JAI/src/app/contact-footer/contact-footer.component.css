@@ -10,3 +10,8 @@
     display: flex;
     justify-content: space-evenly ;
 }
+
+mat-card {
+    background-color: lightblue;
+    color: white;
+}

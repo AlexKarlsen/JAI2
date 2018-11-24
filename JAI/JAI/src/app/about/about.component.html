@@ -1,7 +1,29 @@
 <mat-card *ngIf="content; else loading">
   <!-- variable binding -->
-  <markdown [data]="content.content"></markdown>
-  <app-map></app-map>
+  <mat-card-title>
+    {{content.title}}
+  </mat-card-title>
+  <mat-card-content>
+    {{content.content}}
+  </mat-card-content>
+  <mat-card-title>
+    {{content.social.title}}
+  </mat-card-title>
+  <mat-card-content>
+    {{content.social.content}}
+  </mat-card-content>
+  <mat-card-title>
+    {{content.comitees.title}}
+  </mat-card-title>
+  <mat-card-content>
+    {{content.comitees.content}}
+  </mat-card-content>
+  <mat-card-title>
+      {{content.history.title}}
+    </mat-card-title>
+    <mat-card-content>
+      {{content.history.content}}
+    </mat-card-content>
 </mat-card>
 
 <ng-template #loading>

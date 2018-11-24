@@ -47,10 +47,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <button mat-stroked-button color="primary" routerLink="/matches">
-
-        Kommende Kampe
-      </button>
+      <button mat-stroked-button color="primary" routerLink="/matches">Kommende Kampe</button>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="party" hideToggle>
@@ -66,6 +63,7 @@
         </div>
       </mat-expansion-panel-header>
       {{party.description}}
+      <button mat-stroked-button routerLink="/parties">Kommende JAI arrangement</button>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="common" hideToggle>
