@@ -5,7 +5,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AngularFireModule } from '@angularfire';
+import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 // tslint:disable-next-line:max-line-length
@@ -99,19 +99,17 @@ export function markedOptions(): MarkedOptions {
     WorkComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'JAI'}),
     BrowserAnimationsModule,
     AppRoutingModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatSidenavModule,
     MatDialogModule,
-    MatRadioModule,
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
