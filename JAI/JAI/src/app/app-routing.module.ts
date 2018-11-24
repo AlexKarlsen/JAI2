@@ -12,6 +12,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { PartiesComponent } from './parties/parties.component';
 import { StartGuideComponent } from './start-guide/start-guide.component';
 import { PoliticsComponent } from './politics/politics.component';
+import { WorkComponent } from './work/work.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'parties', component: PartiesComponent },
   { path: 'start-guide', component: StartGuideComponent },
-  { path: 'politics', component: PoliticsComponent }
+  { path: 'politics', component: PoliticsComponent },
+  { path: 'work', component: WorkComponent }
 ];
 
 @NgModule({

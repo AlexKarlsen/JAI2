@@ -1,0 +1,16 @@
+<mat-card>
+  <div *ngFor="let w of work" fxFlex.gt-sm="33%" style="padding: 0 10px 0 10px">
+    <mat-card-title>
+      {{w.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{w.date | date: 'shortDate':''}}
+    </mat-card-subtitle>
+    <mat-card-content>
+      {{w.description}}
+    </mat-card-content>
+    <div style="text-align: right">
+      <button mat-raised-button><a href="{{w.link}}">Tilmeld dig!</a></button>
+    </div>
+  </div>
+</mat-card>
