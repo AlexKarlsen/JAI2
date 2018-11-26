@@ -3,8 +3,10 @@
 
 /* Global CSS file for the entire homepage */
 body {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Roboto, sans-serif;
+    padding: 0;
+    font-family: Raleway, sans-serif;
   }
 
   .logo {
@@ -35,3 +37,4 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($candy-app-theme);
+

@@ -1,5 +1,4 @@
-<mat-card class="card" *ngIf="times; else loading">
-  <mat-card-title>Træningstider</mat-card-title>
+<div class="card" *ngIf="times; else loading">
   <div class="example-container elevation">
     <mat-table #table [dataSource]="times">
       
@@ -69,7 +68,7 @@
       </mat-row>
     </mat-table>
   </div>
-</mat-card>
+</div>
 
 
 <ng-template #loading>

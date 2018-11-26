@@ -1,5 +1,4 @@
-<mat-card class="card" *ngIf="content; else loading">
-  <mat-card-title>{{content.title}}</mat-card-title>
+<div class="card" *ngIf="content; else loading">
   <mat-accordion class="example-headers-align">
 
     <mat-expansion-panel *ngIf="nextGame" hideToggle>
@@ -115,7 +114,7 @@
       {{refTable[0].description}}
     </mat-expansion-panel>
   </mat-accordion>
-</mat-card>
+</div>
 
 <ng-template #loading>
   <mat-card>
