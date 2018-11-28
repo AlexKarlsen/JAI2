@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlamelinkService } from '../flamelink.service';
 import { DataService } from '../data.service';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { PostDetailComponent } from '../post-detail/post-detail.component';
 
 @Component({
   selector: 'app-post-list',
@@ -15,7 +17,7 @@ export class PostListComponent implements OnInit {
   posts: any[];
   slideConfig;
 
-  constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router) {
+  constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router, private dialog: MatDialog) {
     this.mobHeight = (window.screen.height) + 'px';
     this.mobWidth = (window.screen.width) + 'px';
     console.log(this.mobHeight);
@@ -69,4 +71,16 @@ export class PostListComponent implements OnInit {
     console.log('slick initialized');
   }
 
+  openDialog(post) {
+
+    const dialogConfig = new MatDialogConfig();
+    this._ds.setData(post);
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.maxWidth = '90vw';
+    dialogConfig.width = '98%';
+    dialogConfig.height = '95%';
+
+    this.dialog.open(PostDetailComponent, dialogConfig);
+  }
 }

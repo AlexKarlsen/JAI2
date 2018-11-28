@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { FlamelinkService } from '../flamelink.service';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-post-detail',
@@ -12,7 +13,11 @@ export class PostDetailComponent implements OnInit {
 
   post: any;
 
-  constructor(private route: ActivatedRoute, private _ds: DataService, private _fs: FlamelinkService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private _ds: DataService,
+    private _fs: FlamelinkService,
+    private dialogRef: MatDialogRef<PostDetailComponent> ) { }
 
   ngOnInit() {
     // If the app is loaded here, the serviceData will be null, hence the post must be fetched.
@@ -34,6 +39,10 @@ export class PostDetailComponent implements OnInit {
       // Get passed on data from DataService
       this.post = this._ds.getData();
     }
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }

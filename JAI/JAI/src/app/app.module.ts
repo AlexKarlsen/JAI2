@@ -133,6 +133,6 @@ export function markedOptions(): MarkedOptions {
   ],
   providers: [{provide: LOCALE_ID, useValue: 'da-DA' } ],
   bootstrap: [AppComponent],
-  entryComponents: [FacebookPagePluginComponent]
+  entryComponents: [FacebookPagePluginComponent, PostDetailComponent]
 })
 export class AppModule { }

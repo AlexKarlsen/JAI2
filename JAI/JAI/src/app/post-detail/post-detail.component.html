@@ -1,19 +1,17 @@
-<div *ngIf="post">
-  <mat-card >
-    <mat-card-header>
-    <mat-card-title> 
-      <h1>{{ post.title }} </h1>
-    </mat-card-title>
-    </mat-card-header> 
-    <!--<img style="max-width:100%" *ngFor="let img of post.fields.media" src="{{ img.fields.file.url }}" />-->
-    <mat-card-content> 
-      <!-- <markdown ngPreserveWhitespaces>{{post.fields.content}} </markdown> -->
-      <markdown> {{post.content}} </markdown>
-    </mat-card-content>
-    <mat-card-footer>
+<article class="card" *ngIf="post" fxFlexLayout="column" fxLayoutWrap>
+  <div class="title">
+    <h1>{{ post.title }} </h1>
+  </div>
+  <div class="sub-title">
+    <h4>
       <time>
         Opdateret: {{ post.date | date: 'shortDate'}}
       </time>
-    </mat-card-footer>
-  </mat-card> 
-</div>
+    </h4>
+  </div>
+
+  <!--<img style="max-width:100%" *ngFor="let img of post.fields.media" src="{{ img.fields.file.url }}" />-->
+  <markdown> {{post.content}} </markdown>
+
+  <button mat-raised-button (click)="close()">Luk</button>
+</article>
