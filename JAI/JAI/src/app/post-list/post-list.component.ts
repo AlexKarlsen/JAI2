@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { FlamelinkService } from '../flamelink.service';
 import { DataService } from '../data.service';
 
@@ -9,17 +9,30 @@ import { DataService } from '../data.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-
+  mobHeight: any;
+  mobWidth: any;
+  slidesToShow = 1;
   posts: any[];
-  slideConfig = {
-    'slidesToShow': 1,
-    'slidesToScroll': 1,
-    'dots': true,
-    'infinite': true,
-    'autoplay': true,
-    'autoplaySpeed': 3000
-  };
-  constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router) { }
+  slideConfig;
+
+  constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router) {
+    this.mobHeight = (window.screen.height) + 'px';
+    this.mobWidth = (window.screen.width) + 'px';
+    console.log(this.mobHeight);
+    console.log(this.mobWidth);
+    if (this.mobWidth > 600) {
+      this.slidesToShow = 3;
+    }
+    console.log(this.slidesToShow);
+    this.slideConfig = {
+      'slidesToShow': this.slidesToShow,
+      'slidesToScroll': 1,
+      'dots': true,
+      'infinite': true,
+      'autoplay': true,
+      'autoplaySpeed': 3000
+    };
+  }
 
   ngOnInit() {
     // This should be updated to only retrieve some of the newest posts
@@ -28,10 +41,10 @@ export class PostListComponent implements OnInit {
         console.error(error);
       }
 
-      this.posts = Object.keys(data).map(key => data[ key ]);
+      this.posts = Object.keys(data).map(key => data[key]);
 
       // Client-side sorting waiting for flamelink update
-      this.posts.sort(function(a, b) {
+      this.posts.sort(function (a, b) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
         return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -49,7 +62,7 @@ export class PostListComponent implements OnInit {
     this._router.navigate(['/detail/' + post.id]);
   }
 
-   slickInit(e) {
+  slickInit(e) {
     console.log('slick initialized');
   }
 

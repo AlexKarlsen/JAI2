@@ -1,12 +1,13 @@
-<article class="card" *ngIf="posts; else loading">
+<div class="card" *ngIf="posts; else loading">
   <ngx-slick-carousel *ngIf="posts; else loading" class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
     (init)="slickInit($event)">
-    <div ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
-    <!-- <mat-card height="100%" class="slide inner-card" fxLayout="column"> -->
-      <h3>{{post.title}}</h3>
+    <article ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
+      <!-- <mat-card height="100%" class="slide inner-card" fxLayout="column"> -->
+      <div class="card-title">
+        <h3>{{post.title}}</h3>
+      </div>
       <div>
-        <img *ngFor="let img of post.mainImage" src="{{ img.url }}"
-          alt="">
+        <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
         <div class="post-text">
           <p>{{post.summary}}</p>
           <div class="author">
@@ -14,20 +15,15 @@
           </div>
         </div>
       </div>
-      <!-- <mat-card-actions>
+    <!-- <mat-card-actions>
         <button mat-raised-button>Læs artikel</button>
       </mat-card-actions> -->
     <!-- </mat-card> -->
-    
-  </div>
-  </ngx-slick-carousel>
-  <div>
 
-  </div>
-</article>
+    </article>
+</ngx-slick-carousel>
+</div>
 
 <ng-template #loading>
-  <mat-card>
     <mat-spinner [color]="secondary"></mat-spinner>
-  </mat-card>
 </ng-template>
