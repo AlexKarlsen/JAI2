@@ -38,3 +38,37 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // that you are using.
 @include angular-material-theme($candy-app-theme);
 
+/*
+ * Actual Sticky Footer Styles
+ */
+ .all-wrap {
+  min-height: 100vh;
+}
+ 
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+.content {
+  flex: 1;
+}
+ 
+ 
+/*
+ * Make the Component injected by Router Outlet full height:
+ */
+main {
+  display: flex;
+  flex-direction: column;
+  > *:not(router-outlet) {
+    flex: 1;
+    display: block;
+  }
+}
+
+.mat-spinner {
+  padding: 20px 0 20px 0;
+  margin: 0 auto;
+}

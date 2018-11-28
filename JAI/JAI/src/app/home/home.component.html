@@ -1,32 +1,48 @@
-<div class="banner-container" *ngIf="content; else loading">
-  <img class="banner" fxHide.xs="true" width="100%" src="{{content.banner[0].url}}" />
-  <img class="banner" fxHide.gt-xs="true" width="100%" src="{{content.bannermobile[0].url}}" />
-  <div class="top-center"><h2>{{content.title}}</h2></div>
-  <div class="bottom-center"><h3>{{content.subtitle}}</h3></div>
-  <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div>
-</div>
-<section class="container news" fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
-  <h2>Nyheder</h2>
-  <app-post-list></app-post-list>
-</section>
-<section class="clubactivities">
-  <h2>Klubaktiviteter</h2>
-  <app-activities></app-activities>
-</section>
-<section class="container training" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap>
-  <h2>Træning</h2>
-  <div style="justify-content:center;">
-      <app-training></app-training>
+
+
+  <div class="banner-container">
+    <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+    <img class="banner" fxHide.gt-xs="true" width="100%" src="../../assets/img/mobile_banner.jpg" />
+    <div *ngIf="content">
+    <div class="top-center">
+      <h2>{{content.title}}</h2>
+    </div>
+    <div class="bottom-center">
+      <h3>{{content.subtitle}}</h3>
+    </div>
+    </div>
+    <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div>
   </div>
-<section class="location">
+
+  <div *ngIf="content; else loading">
+  <section class="container news">
+    <h2>Nyheder</h2>
+    <app-post-list></app-post-list>
+  </section>
+
+  <section class="clubactivities">
+    <h2>Klubaktiviteter</h2>
+    <app-activities></app-activities>
+  </section>
+
+  <section class="container training" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap>
+    <h2>Træning</h2>
+    <div style="justify-content:center;">
+      <app-training></app-training>
+    </div>
+  </section>
+
+  <section class="location" style="padding-bottom: 0">
     <h2>Lokation</h2>
-  <app-location></app-location>
-</section>
+    <app-location></app-location>
+  </section>
+
+</div>
 
 <!--<app-vision></app-vision>-->
 
 <ng-template #loading>
-  <mat-card>
+  <div class="loading">
     <mat-spinner></mat-spinner>
-  </mat-card>
+  </div>
 </ng-template>

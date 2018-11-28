@@ -4,3 +4,12 @@
 .title {
     justify-content: center;
 }
+
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+.mat-drawer-content {
+    overflow: hidden;
+}
