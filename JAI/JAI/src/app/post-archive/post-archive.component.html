@@ -1,6 +1,6 @@
 <mat-card *ngIf="posts; else loading">
   <mat-list>
-    <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
+    <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="openDialog(post)">
       <span matLine>{{ post.title }} </span>
       <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
       <time matLine>

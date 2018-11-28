@@ -3,6 +3,8 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { FlamelinkService } from '../flamelink.service';
 import { HelperService } from '../helper.service';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { PostDetailComponent } from '../post-detail/post-detail.component';
 
 @Component({
   selector: 'app-post-archive',
@@ -20,7 +22,8 @@ export class PostArchiveComponent implements OnInit {
     private _fl: FlamelinkService,
     private _ds: DataService,
     private router: Router,
-    private helper: HelperService
+    private helper: HelperService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -60,5 +63,16 @@ export class PostArchiveComponent implements OnInit {
     // navigate to component
     this.router.navigate(['/detail/' + post.sys.id]);
   }
+  openDialog(post) {
 
+    const dialogConfig = new MatDialogConfig();
+    this._ds.setData(post);
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.maxWidth = '90vw';
+    dialogConfig.width = '98%';
+    dialogConfig.height = '95%';
+
+    this.dialog.open(PostDetailComponent, dialogConfig);
+  }
 }
