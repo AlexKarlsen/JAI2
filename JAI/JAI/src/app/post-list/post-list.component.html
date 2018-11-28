@@ -1,29 +1,25 @@
-<div class="card" *ngIf="posts; else loading">
-  <ngx-slick-carousel *ngIf="posts; else loading" class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+<div *ngIf="posts; else loading">
+  <ngx-slick-carousel *ngIf="posts; else loading" class="carousel gallery-one" #slickModal="slick-carousel" [config]="slideConfig"
     (init)="slickInit($event)">
-    <article ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
-      <!-- <mat-card height="100%" class="slide inner-card" fxLayout="column"> -->
-      <div class="card-title">
-        <h3>{{post.title}}</h3>
-      </div>
-      <div>
-        <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
-        <div class="post-text">
-          <p>{{post.summary}}</p>
-          <div class="author">
-            <p>{{post.author}} {{post.date | date: 'shortDate':''}}</p>
+    <div class="card" ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="onSelect(post)">
+      <article>
+        <div class="card-title">
+          <h3>{{post.title}}</h3>
+        </div>
+        <div>
+          <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
+          <div class="post-text">
+            <p>{{post.summary}}</p>
+            <div class="author">
+              <p>{{post.author}} {{post.date | date: 'shortDate':''}}</p>
+            </div>
           </div>
         </div>
-      </div>
-    <!-- <mat-card-actions>
-        <button mat-raised-button>Læs artikel</button>
-      </mat-card-actions> -->
-    <!-- </mat-card> -->
-
-    </article>
-</ngx-slick-carousel>
+      </article>
+    </div>
+  </ngx-slick-carousel>
 </div>
 
 <ng-template #loading>
-    <mat-spinner [color]="secondary"></mat-spinner>
+  <mat-spinner [color]="secondary"></mat-spinner>
 </ng-template>

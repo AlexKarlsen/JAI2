@@ -5,11 +5,15 @@
     box-sizing: border-box;
 }
 
-.card {
+article, .card {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     flex: 1;
+  }
+
+  img, .card {
+    object-fit: cover;
   }
 
   .author {
@@ -20,4 +24,8 @@
 
 h3, .post-text {
     padding: 0 1em 0 1em;
+}
+
+.card-title {
+  padding: 0 1em 0 1em;
 }

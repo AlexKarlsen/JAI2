@@ -20,7 +20,10 @@ export class PostListComponent implements OnInit {
     this.mobWidth = (window.screen.width) + 'px';
     console.log(this.mobHeight);
     console.log(this.mobWidth);
-    if (this.mobWidth > 600) {
+    if (window.screen.width > 600) {
+      console.log('setting number of slides to show');
+      this.slidesToShow = 2;
+    } else if (window.screen.width > 900) {
       this.slidesToShow = 3;
     }
     console.log(this.slidesToShow);

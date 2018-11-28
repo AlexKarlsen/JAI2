@@ -15,11 +15,12 @@
   </div>
 
   <div *ngIf="content; else loading">
-  <section class="container news">
+  <section class="container news" fxLayout="column" fxLayoutWrap>
     <h2>Nyheder</h2>
     <app-post-list></app-post-list>
   </section>
 
+  <div fxLayout.gt-md="row">
   <section class="clubactivities">
     <h2>Klubaktiviteter</h2>
     <app-activities></app-activities>
@@ -31,8 +32,8 @@
       <app-training></app-training>
     </div>
   </section>
-
-  <section class="location" style="padding-bottom: 0">
+  </div>
+  <section class="location" style="padding-bottom: 0 ">
     <h2>Lokation</h2>
     <app-location></app-location>
   </section>
