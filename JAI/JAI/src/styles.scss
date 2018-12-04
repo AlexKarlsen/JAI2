@@ -13,6 +13,12 @@ body {
     display: cover;
   }
 
+  .justify-text {
+    text-align: justify; 
+    text-justify: newspaper;
+    hyphens: auto;
+  }
+
   @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 

@@ -94,9 +94,10 @@
       <div>
         {{work.description}}
       </div>
-      <div style="text-align: right">
-        <button mat-raised-button routerLink="/work">Kommende frivilligt arbejde</button>
-        <button mat-raised-button><a href="{{work.link}}">Tilmeld dig!</a></button>
+      <div fxLayout="row" style="justify-content: space-evenly">
+        <button mat-raised-button routerLink="/work">Flere</button>
+        <button mat-raised-button><a href="{{work.link}}">Læs mere</a></button>
+        <button mat-raised-button><a href="{{work.link}}">Tilmelding</a></button>
       </div>
     </div>
     </mat-expansion-panel>
