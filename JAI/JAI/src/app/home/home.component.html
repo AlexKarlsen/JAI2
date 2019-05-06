@@ -1,38 +1,39 @@
-
-
-  <div class="banner-container">
-    <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
-    <img class="banner" fxHide.gt-xs="true" width="100%" src="../../assets/img/mobile_banner.jpg" />
-    <div *ngIf="content">
+<div class="banner-container">
+  <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+  <img class="banner" fxHide.gt-xs="true" width="100%" src="../../assets/img/mobile_banner.jpg" />
+  <div *ngIf="content">
     <div class="top-center">
       <h2>{{content.title}}</h2>
     </div>
     <div class="bottom-center">
       <h3>{{content.subtitle}}</h3>
     </div>
-    </div>
-    <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div>
+  </div>
+  <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div>
+</div>
+
+
+<div *ngIf="content; else loading">
+  <div>
+    <section class="clubactivities">
+      <h2>Klubaktiviteter</h2>
+      <app-activities></app-activities>
+    </section>
+
+    <section class="container training">
+      <h2>Træning</h2>
+      <div>
+        <app-training></app-training>
+      </div>
+    </section>
   </div>
 
-  <div *ngIf="content; else loading">
-  <section class="container news" fxLayout="column" fxLayoutWrap>
+  <section class="container news">
     <h2>Nyheder</h2>
     <app-post-list></app-post-list>
   </section>
 
-  <div fxLayout.gt-md="row">
-  <section class="clubactivities">
-    <h2>Klubaktiviteter</h2>
-    <app-activities></app-activities>
-  </section>
 
-  <section class="container training" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap>
-    <h2>Træning</h2>
-    <div style="justify-content:center;">
-      <app-training></app-training>
-    </div>
-  </section>
-  </div>
   <section class="location" style="padding-bottom: 0 ">
     <h2>Lokation</h2>
     <app-location></app-location>

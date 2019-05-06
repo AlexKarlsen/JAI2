@@ -5,11 +5,53 @@
     justify-content: center;
 }
 
-body { 
+body {
     margin: 0;
     padding: 0;
 }
 
 .mat-drawer-content {
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.menu-button {
+    position: fixed;
+    border-radius: 100%;
+    background: white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    top: 1.5em;
+    right: 1.5em;
+    z-index: 10;
+    color: black;
+}
+
+.menu-header {
+    padding-top: 0.5em;
+    font-size: 3em !important;
+    color: white;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+mat-sidenav {
+    width: 100vw;
+    background-color: rgba(0,0,0,0.35);
+}
+
+ul {
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    align-content: center;
+}
+
+ul li {
+    padding: 0.8em 0 0.8em 0;
+}
+
+ul li a{
+    font-size: 2em;
+    color: whitesmoke;
+    text-decoration: none;
+    padding-right: 1.15em;
 }

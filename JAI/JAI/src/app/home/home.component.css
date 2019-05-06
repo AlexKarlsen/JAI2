@@ -2,7 +2,14 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    grid-template-areas: ""
+    grid-template-areas: "";
+    max-width: 1024px !important;
+    margin: 0 auto;
+}
+
+.banner-container {
+    max-width: 1024px !important;
+    margin: 0 auto;
 }
 
 section {
@@ -23,6 +30,8 @@ section h2 {
 
 .clubactivities {
     background-color: #FAFAFA;
+    max-width: 720px !important;
+    margin: 0 auto;
 }
 
 .training {
@@ -32,6 +41,8 @@ section h2 {
 
 .location {
     background-color: #ffffff;
+    max-width: 720px !important;
+    margin: 0 auto;
 }
 
 .banner {
