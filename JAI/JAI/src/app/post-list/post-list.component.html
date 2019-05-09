@@ -1,14 +1,14 @@
-<div *ngIf="posts; else loading">
-  <ngx-slick-carousel *ngIf="posts; else loading" class="carousel gallery-one" #slickModal="slick-carousel" [config]="slideConfig"
+<div class="container" *ngIf="posts; else loading">
+  <ngx-slick-carousel class="carousel gallery-one" #slickModal="slick-carousel" [config]="slideConfig"
     (init)="slickInit($event)">
-    <div class="card" ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="openDialog(post)">
-      <article>
+    <div  ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="openDialog(post)">
+      <article class="card">
         <div class="card-title">
           <h3>{{post.title}}</h3>
         </div>
         <div>
           <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
-          <div class="post-text justify-text">
+          <div>
             <p>{{post.summary}}</p>
             <div class="author">
               <p>{{post.author}} {{post.date | date: 'shortDate':''}}</p>

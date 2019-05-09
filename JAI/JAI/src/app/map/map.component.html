@@ -2,7 +2,7 @@
 <div class="container" fxLayout="row" >
     <button mat-raised-button *ngFor="let marker of Arenas" (click)="changeMarker(marker)">{{marker.name}}</button>
 </div>
-<agm-map *ngIf="mapCenter" (mapReady)="onMapReady()" [longitude]="mapCenter.longitude" [latitude]="mapCenter.latitude"
+<agm-map *ngIf="mapCenter" [scrollwheel]="false" (mapReady)="onMapReady()" [longitude]="mapCenter.longitude" [latitude]="mapCenter.latitude"
     [zoom]="12">
     <agm-marker *ngFor="let marker of Arenas" [longitude]="marker.location.lng" [latitude]="marker.location.lat">
         <agm-info-window [isOpen]="marker.showOnMaps">
