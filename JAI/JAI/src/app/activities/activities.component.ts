@@ -65,8 +65,15 @@ export class ActivitiesComponent implements OnInit {
       }
 
       const games = Object.keys(data).map(key => data[ key ]);
-
       this.nextGame = this.helper.clientSideFilterSort(games)[0];
+
+      // expired checking
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      console.log(today);
+      if (new Date(this.nextGame.date) <= today) {
+        this.nextGame = null;
+      }
       console.log(this.nextGame);
     });
 

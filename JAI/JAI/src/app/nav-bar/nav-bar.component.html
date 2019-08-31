@@ -13,7 +13,7 @@
 
 
 <mat-sidenav-container fullscreen class="example-container">
-  <mat-sidenav #drawer mode="over" position="end" role="navigation">
+  <mat-sidenav #drawer mode="over" position="end" role="navigation" (click)="drawer.toggle()">
     <h2 class="menu-header">Menu</h2>
     <ul>
       <li  *ngFor="let item of items" >

@@ -6,7 +6,7 @@
         <div class="card-title">
           <h3>{{post.title}}</h3>
         </div>
-        <div>
+        <div style="padding: 3em">
           <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
           <div>
             <p>{{post.summary}}</p>
