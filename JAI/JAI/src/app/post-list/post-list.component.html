@@ -40,6 +40,9 @@
       <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
     </div>
   </article>
+  <h3>
+    Andre nyheder
+  </h3>
   <mat-list>
       <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost"
         (click)="openDialog(post)">
