@@ -14,7 +14,10 @@
 
 section {
     width: 100%;
-    padding: 1em 0;
+    background-color: #FAFAFA;
+    max-width: 1024px !important;
+    margin: 1em auto;
+    padding-bottom: 1em;
 }
 
 section h2 {
@@ -37,12 +40,6 @@ section h2 {
 .training {
     background-image: url('../../assets/img/annex.jpg');
     background-repeat: no-repeat;
-}
-
-.location {
-    background-color: #ffffff;
-    max-width: 720px !important;
-    margin: 0 auto;
 }
 
 .banner {

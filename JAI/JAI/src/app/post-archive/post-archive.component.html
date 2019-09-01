@@ -1,21 +1,26 @@
-<mat-card *ngIf="posts; else loading">
-  <mat-list>
-    <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="openDialog(post)">
-      <span matLine>{{ post.title }} </span>
-      <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
-      <time matLine>
-        Opdateret: {{ post.date | date: 'shortDate'}}
-      </time>
-    </mat-list-item>
-    <ng-template #elseBlock>Der er ikke flere nyheder i arkiv</ng-template>
-    <div *ngIf="!noMore; else elseBlock">
-      <button mat-button (click)="loadMore()" [hidden]="noMore">Hent {{ LOAD_COUNT_NUMBER }} mere</button>
-    </div>
-  </mat-list>
-</mat-card>
-
+<div class="container">
+  <mat-card *ngIf="posts; else loading">
+    <mat-card-title>
+      Nyhedsarkiv
+    </mat-card-title>
+    <mat-list>
+      <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost"
+        (click)="openDialog(post)">
+        <span matLine>{{ post.title }} </span>
+        <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
+        <time matLine>
+          Opdateret: {{ post.date | date: 'shortDate'}}
+        </time>
+      </mat-list-item>
+      <ng-template #elseBlock>Der er ikke flere nyheder i arkiv</ng-template>
+      <div *ngIf="!noMore; else elseBlock">
+        <button mat-button (click)="loadMore()" [hidden]="noMore">Hent {{ LOAD_COUNT_NUMBER }} mere</button>
+      </div>
+    </mat-list>
+  </mat-card>
+</div>
 <ng-template #loading>
-    <mat-card>
-      <mat-spinner [color]="secondary"></mat-spinner>
-    </mat-card>
-  </ng-template>
+  <mat-card>
+    <mat-spinner [color]="secondary"></mat-spinner>
+  </mat-card>
+</ng-template>

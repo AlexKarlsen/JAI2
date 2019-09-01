@@ -1,4 +1,5 @@
 .container {
-    max-width: 1024px !important;
+    background-color: #ffffff;
+    max-width: 720px !important;
     margin: 0 auto;
 }

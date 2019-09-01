@@ -1,17 +1,12 @@
 .container {
     box-sizing: border-box;
     max-width: 1024px;
-    /* width: 100%; */
+    width: 100%;
+    padding: 1em;
 }
 
-  img, .card {
-    box-sizing: border-box;
-    text-align: justify;
-    margin: 0 auto;
-  }
-
   img {
-    object-fit: fill;
+    width: 100%;
   }
 
   .author {
@@ -20,15 +15,10 @@
     color: rgba(0, 0, 0, 0.54);
   }
 
-h3, .post-text {
-    padding: 0 1em 0 1em;
-
+.post{
+  padding: 1em;
 }
 
-.card-title {
-  padding: 0 1em 0 1em;
-}
-
-.slick-slider {
-  min-height:1px;
+.list-item-title {
+  padding-left: 1em;
 }

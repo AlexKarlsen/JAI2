@@ -1,7 +1,7 @@
 <div *ngIf="content">
-  <div class="sponsors" fxLayoutGap="2%">
+  <div class="container" fxLayoutGap="2%">
     <mat-card>
-      <mat-card-title>{{content.pageTitle}}</mat-card-title>
+      <h1>{{content.pageTitle}}</h1>
       <div *ngFor="let sponsor of content.sponsors">
         <img src="{{sponsor.imageUrl}}"/>
         <mat-card-content>{{sponsor.description}}</mat-card-content>

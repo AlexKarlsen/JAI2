@@ -1,128 +1,125 @@
-<div *ngIf="teams">
-  <mat-card>
-    <mat-card-title>
-      Vores Hold
-    </mat-card-title>
-    <div class="team" *ngFor="let team of teams; let i=index">
-      <mat-card-title>
-        {{team.name}}
-      </mat-card-title>
+<section class="container" *ngIf="teams">
+  <h1 class="header">
+    Vores Hold
+  </h1>
+  <div class="team" *ngFor="let team of teams; let i=index">
+    <h2 class="teamHeader">
+      {{team.name}}
+    </h2>
 
 
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{team.team1.name}}
-            </mat-panel-title>
-            <mat-panel-description>
-              {{team.team1.league}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          {{team.team1.description}}
-          <h4>Træning</h4>
-          <div class="example-container elevation">
-            <mat-table #table [dataSource]="team.practices">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{team.team1.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{team.team1.league}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        {{team.team1.description}}
+        <h4>Træning</h4>
+        <div class="example-container elevation">
+          <mat-table #table [dataSource]="team.practices">
 
-              <ng-container matColumnDef="day">
-                <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.weekday}}<br /></ng-container>
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="day">
+              <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.weekday}}<br /></ng-container>
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="time">
-                <mat-header-cell *matHeaderCellDef> Tid </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.startTime | slice:0:5}}-{{element.endTime |
+            <ng-container matColumnDef="time">
+              <mat-header-cell *matHeaderCellDef> Tid </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.startTime | slice:0:5}}-{{element.endTime |
                     slice:0:5}} <br /></ng-container>
-                </mat-cell>
-              </ng-container>
+              </mat-cell>
+            </ng-container>
 
 
-              <ng-container matColumnDef="place">
-                <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.place}} <br /></ng-container>
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="place">
+              <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.place}} <br /></ng-container>
+              </mat-cell>
+            </ng-container>
 
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
-            </mat-table>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
+          </mat-table>
+        </div>
+        <div class="coach" *ngIf="team.coach1">
+          <div class="title">
+            <h4>Trænere</h4>
           </div>
-          <div class="coach" *ngIf="team.coach1">
-            <div class="title">
-              <h4>Trænere</h4>
-            </div>
-            <mat-list>
-              <mat-list-item *ngFor="let coach of team.coach1">
-                <span matLine>{{coach.name}}</span>
-                <img matListAvatar />
-                <p matLine><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
-                <p matLine><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
-              </mat-list-item>
-            </mat-list>
-          </div>
-        </mat-expansion-panel>
+          <mat-list>
+            <mat-list-item *ngFor="let coach of team.coach1">
+              <span matLine>{{coach.name}}</span>
+              <img matListAvatar />
+              <p matLine><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
+              <p matLine><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-expansion-panel>
 
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{team.team2.name}}
-            </mat-panel-title>
-            <mat-panel-description>
-              {{team.team2.league}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          {{team.team2.description}}
-          <h4>Træning</h4>
-          <div class="example-container elevation">
-            <mat-table #table [dataSource]="team.practices">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{team.team2.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{team.team2.league}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        {{team.team2.description}}
+        <h4>Træning</h4>
+        <div class="example-container elevation">
+          <mat-table #table [dataSource]="team.practices">
 
-              <ng-container matColumnDef="day">
-                <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.weekday}}<br /></ng-container>
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="day">
+              <mat-header-cell *matHeaderCellDef> Dag </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.weekday}}<br /></ng-container>
+              </mat-cell>
+            </ng-container>
 
-              <ng-container matColumnDef="time">
-                <mat-header-cell *matHeaderCellDef> Tid </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.startTime | slice:0:5}}-{{element.endTime |
+            <ng-container matColumnDef="time">
+              <mat-header-cell *matHeaderCellDef> Tid </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.startTime | slice:0:5}}-{{element.endTime |
                     slice:0:5}} <br /></ng-container>
-                </mat-cell>
-              </ng-container>
+              </mat-cell>
+            </ng-container>
 
 
-              <ng-container matColumnDef="place">
-                <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                  <ng-container *ngIf="element.oddMonth == isOdd">{{element.place}} <br /></ng-container>
-                </mat-cell>
-              </ng-container>
+            <ng-container matColumnDef="place">
+              <mat-header-cell *matHeaderCellDef> Sted </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.oddMonth == isOdd">{{element.place}} <br /></ng-container>
+              </mat-cell>
+            </ng-container>
 
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
-            </mat-table>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
+          </mat-table>
+        </div>
+        <div class="coach" *ngIf="team.coach2">
+          <div class="title">
+            <h4>Trænere</h4>
           </div>
-          <div class="coach" *ngIf="team.coach2">
-            <div class="title">
-              <h4>Trænere</h4>
-            </div>
-            <mat-list>
-              <mat-list-item *ngFor="let coach of team.coach2">
-                <span matLine>{{coach.name}}</span>
-                <img matListAvatar />
-                <p matLine><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
-                <p matLine><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
-              </mat-list-item>
-            </mat-list>
-          </div>
+          <mat-list>
+            <mat-list-item *ngFor="let coach of team.coach2">
+              <span matLine>{{coach.name}}</span>
+              <img matListAvatar />
+              <p matLine><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
+              <p matLine><a href="mailto:{{coach.mail}}">{{coach.mail}}</a></p>
+            </mat-list-item>
+          </mat-list>
+        </div>
 
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-  </mat-card>
-</div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>

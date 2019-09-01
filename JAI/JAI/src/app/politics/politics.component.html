@@ -1,11 +1,11 @@
-<mat-card *ngIf="content">
+<mat-card class="container" *ngIf="content">
   <mat-card-title>
     {{content.title}}
   </mat-card-title>
   <mat-card-content>
     {{content.content}}
 
-    <mat-card *ngIf="membersPolitics">
+    <div *ngIf="membersPolitics">
       <mat-card-title>
         {{membersPolitics.title}}
       </mat-card-title>
@@ -17,9 +17,9 @@
           <div markdown>{{membersPolitics.content}}</div>
         </mat-card-content>
       </ng-template>
-    </mat-card>
+    </div>
 
-    <mat-card>
+    <div>
       <mat-card-title *ngIf="privacyPolitics">
         {{privacyPolitics.title}}
       </mat-card-title>
@@ -31,6 +31,6 @@
           <div markdown>{{privacyPolitics.content}}</div>
         </mat-card-content>
       </ng-template>
-    </mat-card>
+    </div>
   </mat-card-content>
 </mat-card>

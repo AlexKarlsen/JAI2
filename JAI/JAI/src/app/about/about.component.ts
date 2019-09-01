@@ -5,7 +5,7 @@ import { FlamelinkService } from '../flamelink.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
 

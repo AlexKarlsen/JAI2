@@ -1,33 +1,34 @@
-<mat-card *ngIf="content; else loading">
+<div class="container" *ngIf="content; else loading">
   <!-- variable binding -->
-  <mat-card-title>
+  <h2 class=title>
     {{content.title}}
-  </mat-card-title>
-  <mat-card-content class="justify-text">
+  </h2>
+  <div class="justify-text">
     {{content.content}}
-  </mat-card-content>
-  <mat-card-title>
+  </div>
+  <h2 class="subtitle">
+
     {{content.social.title}}
-  </mat-card-title>
-  <mat-card-content class="justify-text">
+  </h2>
+  <div class="justify-text">
     {{content.social.content}}
-  </mat-card-content>
-  <mat-card-title>
+  </div>
+  <h2 class="subtitle">
     {{content.comitees.title}}
-  </mat-card-title>
-  <mat-card-content class="justify-text">
+  </h2>
+  <div class="justify-text">
     {{content.comitees.content}}
-  </mat-card-content>
-  <mat-card-title class="justify-text">
-      {{content.history.title}}
-    </mat-card-title>
-    <mat-card-content class="justify-text">
-      {{content.history.content}}
-    </mat-card-content>
-</mat-card>
+  </div>
+  <h2 class="subtitle">
+    {{content.history.title}}
+  </h2>
+  <div class="justify-text">
+    {{content.history.content}}
+  </div>
+</div>
 
 <ng-template #loading>
-  <mat-card>
+  <div>
     <mat-spinner [color]="secondary"></mat-spinner>
-  </mat-card>
+  </div>
 </ng-template>

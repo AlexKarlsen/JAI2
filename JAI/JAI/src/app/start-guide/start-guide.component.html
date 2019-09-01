@@ -1,12 +1,10 @@
-<div *ngIf="content">
+<div class="container" *ngIf="content">
   <mat-card>
-    <mat-card-title>{{content.title}}</mat-card-title>
-    <mat-card-content class="justify-text">{{content.content}}</mat-card-content>
-  </mat-card>
-  <app-about></app-about>
-  <app-teams></app-teams>
-  <mat-card>
-    <mat-card-title>Her hører vi til</mat-card-title>
-    <app-map></app-map>
+    <h1>{{content.title}}</h1>
+        <mat-card-content class="justify-text">{{content.content}}</mat-card-content>
+        <app-about></app-about>
+        <app-teams></app-teams>
+        <h2>Her hører vi til</h2>
+        <app-map></app-map>
   </mat-card>
 </div>

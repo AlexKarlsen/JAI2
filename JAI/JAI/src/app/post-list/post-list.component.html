@@ -1,23 +1,60 @@
-<div class="container" *ngIf="posts; else loading">
-  <ngx-slick-carousel class="carousel gallery-one" #slickModal="slick-carousel" [config]="slideConfig"
-    (init)="slickInit($event)">
-    <div  ngxSlickItem *ngFor="let post of posts" [class.selected]="post === selectedPost" (click)="openDialog(post)">
-      <article class="card">
-        <div class="card-title">
-          <h3>{{post.title}}</h3>
-        </div>
-        <div style="padding: 3em">
-          <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
-          <div>
-            <p>{{post.summary}}</p>
-            <div class="author">
-              <p>{{post.author}} {{post.date | date: 'shortDate':''}}</p>
-            </div>
-          </div>
-        </div>
-      </article>
+<!-- <mat-card class="container" *ngIf="posts; else loading" fxFlex="1 1 auto">
+  <article *ngIf="displayPost" [class.selected]="displayPost === selectedPost" (click)="openDialog(displayPost)"
+    class="card">
+    <div class="card-title">
+      <h3>{{displayPost.title}}</h3>
     </div>
-  </ngx-slick-carousel>
+    <div>
+      <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
+      <mat-card-content>
+        <p>{{displayPost.summary}}</p>
+        <div class="author">
+          <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
+        </div>
+      </mat-card-content>
+    </div>
+  </article>
+
+  <mat-list>
+    <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost"
+      (click)="openDialog(post)">
+      <span matLine>{{ post.title }} </span>
+      <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
+      <time matLine>
+        Opdateret: {{ post.date | date: 'shortDate'}}
+      </time>
+    </mat-list-item>
+    <div>
+      <button mat-button><a routerLink="/newsarchive" routerLinkActive="router-link-active">For flere nyheder se
+          nyhedsarkiv</a></button>
+    </div>
+  </mat-list>
+</mat-card> -->
+
+<div class="post" *ngIf="posts; else loading">
+  <article [class.selected]="displayPost === selectedPost" (click)="openDialog(displayPost)">
+    <h3>{{displayPost.title}}</h3>
+    <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
+    <p>{{displayPost.summary}}</p>
+    <div class="author">
+      <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
+    </div>
+  </article>
+  <mat-list>
+      <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost"
+        (click)="openDialog(post)">
+        <p class="list-item-title">{{ post.title }} </p>
+        <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
+        <time>
+          Opdateret: {{ post.date | date: 'shortDate'}}
+        </time>
+      </mat-list-item>
+      <div>
+        <button mat-button><a routerLink="/newsarchive" routerLinkActive="router-link-active">For flere nyheder se
+            nyhedsarkiv</a></button>
+      </div>
+    </mat-list>
+
 </div>
 
 <ng-template #loading>
