@@ -1,11 +1,11 @@
 <mat-card class="container" *ngIf="content">
   <mat-card-title>
-    {{content.title}}
+    <h1>{{content.title}}</h1>
   </mat-card-title>
   <mat-card-content>
     {{content.content}}
 
-    <div *ngIf="membersPolitics">
+    <div *ngIf="membersPolitics.title">
       <mat-card-title>
         {{membersPolitics.title}}
       </mat-card-title>

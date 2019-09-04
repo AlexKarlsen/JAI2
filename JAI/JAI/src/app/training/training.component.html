@@ -38,6 +38,7 @@
         <mat-cell *matCellDef="let detail" fxLayout="row" style="justify-content: space-between; display: flex; align-items: flex-start">
           <div class="card" fxFlex="50%" style="align-content: flex-start">
             <h3>{{detail.element.team1.name}}</h3>
+            <p *ngIf="detail.element.team1.description">{{detail.element.team1.description}}</p>
             <p><strong>Træner: </strong> <span *ngIf="detail.element.coach1">{{detail.element.coach1[0].name}}</span></p>
             <div fxLayout="row">
               <button mat-button><a *ngIf="detail.element.coach1" href="tel:{{detail.element.coach1[0].phone}}">
@@ -48,6 +49,7 @@
           </div>
           <div class="card" fxFlex="50%" style="align-content: flex-start" >
             <h3 *ngIf="detail.element.team2.name">{{detail.element.team2.name}}</h3>
+            <p *ngIf="detail.element.team1.description">{{detail.element.team2.description}}</p>
             <p *ngIf="detail.element.coach2; else elseBlock"><strong>Træner: </strong> <span *ngIf="detail.element.coach2">{{detail.element.coach2[0].name}}</span></p>
             <div fxLayout="row">
               <button mat-button><a *ngIf="detail.element.coach2" href="tel:{{detail.element.coach2[0].phone}}">

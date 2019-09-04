@@ -67,13 +67,15 @@
 
     <mat-expansion-panel *ngIf="common" hideToggle>
       <mat-expansion-panel-header>
-        <mat-icon>map</mat-icon>
-        <mat-panel-title>
-          {{common.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{common.date | date: 'shortDate':''}}
-        </mat-panel-description>
+        <div class="mat-content">
+          <mat-icon fxFlex="10%"><img width="32px" src="../../assets/icon/unity.png"></mat-icon>
+          <mat-panel-title fxFlex="40%">
+            {{common.title}}
+          </mat-panel-title>
+          <mat-panel-description fxFlex="20%">
+            {{common.date | date: 'shortDate':''}}
+          </mat-panel-description>
+        </div>
       </mat-expansion-panel-header>
       {{common.description}}
     </mat-expansion-panel>
@@ -91,15 +93,15 @@
         </div>
       </mat-expansion-panel-header>
       <div fxLayout="column">
-      <div>
-        {{work.description}}
+        <div>
+          {{work.description}}
+        </div>
+        <div fxLayout="row" style="justify-content: space-evenly">
+          <button mat-raised-button routerLink="/work">Flere</button>
+          <button mat-raised-button><a href="{{work.link}}">Læs mere</a></button>
+          <button mat-raised-button><a href="{{work.link}}">Tilmelding</a></button>
+        </div>
       </div>
-      <div fxLayout="row" style="justify-content: space-evenly">
-        <button mat-raised-button routerLink="/work">Flere</button>
-        <button mat-raised-button><a href="{{work.link}}">Læs mere</a></button>
-        <button mat-raised-button><a href="{{work.link}}">Tilmelding</a></button>
-      </div>
-    </div>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="refTable" hideToggle>
@@ -118,5 +120,5 @@
 </div>
 
 <ng-template #loading>
-    <mat-spinner [color]="secondary"></mat-spinner>
+  <mat-spinner [color]="secondary"></mat-spinner>
 </ng-template>
