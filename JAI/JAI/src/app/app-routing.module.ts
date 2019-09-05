@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router, NavigationEnd } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { AboutComponent } from './about/about.component';
@@ -13,6 +13,9 @@ import { PartiesComponent } from './parties/parties.component';
 import { StartGuideComponent } from './start-guide/start-guide.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { WorkComponent } from './work/work.component';
+
+ // declare ga as a function to set and sent the events
+ declare let ga: Function;
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,4 +38,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}
