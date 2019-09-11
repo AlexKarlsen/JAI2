@@ -1,0 +1,17 @@
+<article class="card" *ngIf="post" fxFlexLayout="column" fxLayoutWrap>
+  <div class="title">
+    <h1>{{ post.title }} </h1>
+  </div>
+  <div class="sub-title">
+    <h4>
+      <time>
+        Opdateret: {{ post.date | date: 'shortDate'}}
+      </time>
+    </h4>
+  </div>
+
+  <!--<img style="max-width:100%" *ngFor="let img of post.fields.media" src="{{ img.fields.file.url }}" />-->
+  <markdown class="justify-text"> {{post.content}} </markdown>
+
+  <button mat-raised-button (click)="close()">Luk</button>
+</article>

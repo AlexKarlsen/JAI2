@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'sponsors', component: SponsorsComponent },
   { path: 'english', component: EnglishComponent },
   { path: 'teams', component: TeamsComponent },
-  { path: 'parties', component: PartiesComponent },
+  { path: 'events', component: PartiesComponent },
   { path: 'start-guide', component: StartGuideComponent },
   { path: 'politics', component: PoliticsComponent },
   { path: 'work', component: WorkComponent }

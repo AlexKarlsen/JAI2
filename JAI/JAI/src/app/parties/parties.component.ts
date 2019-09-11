@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
 import { HelperService } from '../helper.service';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { DataService } from '../data.service';
+import { EventDetailsComponent } from '../event-details/event-details.component';
 
 @Component({
   selector: 'app-parties',
@@ -11,7 +14,7 @@ export class PartiesComponent implements OnInit {
 
   parties;
 
-  constructor(private _fl: FlamelinkService, private helper: HelperService) { }
+  constructor(private _fl: FlamelinkService, private helper: HelperService, private dialog: MatDialog, private _ds: DataService) { }
 
   ngOnInit() {
         // Get parties
@@ -23,6 +26,18 @@ export class PartiesComponent implements OnInit {
           console.log(tmp);
           this.parties = this.helper.clientSideFilterSort(tmp);
         });
+  }
+  openDialog(post) {
+
+    const dialogConfig = new MatDialogConfig();
+    this._ds.setData(post);
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.maxWidth = '90vw';
+    dialogConfig.width = '98%';
+    dialogConfig.height = '95%';
+
+    this.dialog.open(EventDetailsComponent, dialogConfig);
   }
 
 }

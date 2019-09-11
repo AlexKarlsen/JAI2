@@ -30,6 +30,23 @@ export class HelperService {
     return tmp;
   }
 
+  clientSideRemoveExpired(tmp) {
+    // Today object
+    const arr = [];
+    const date = new Date();
+    // Client-side filtering waiting for flamelink update
+    // Iterate to fid expired events
+    tmp.forEach(i => {
+      // If expired remove element
+      if (new Date(i.date) > date) {
+        // Splice removes at index, count
+        arr.push(i);
+      }
+    });
+    console.log(tmp);
+    return arr;
+  }
+
   clientSideSortDescending(tmp) {
     // Client-side sorting waiting for flamelink update
     tmp.sort(function (a, b) {

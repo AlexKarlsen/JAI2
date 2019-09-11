@@ -46,6 +46,7 @@ import { ContactFooterComponent } from './contact-footer/contact-footer.componen
 import { StartGuideComponent } from './start-guide/start-guide.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { WorkComponent } from './work/work.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 registerLocaleData(localeDa, 'da-DA', localeDaExtra);
 
@@ -96,7 +97,8 @@ export function markedOptions(): MarkedOptions {
     ContactFooterComponent,
     StartGuideComponent,
     PoliticsComponent,
-    WorkComponent
+    WorkComponent,
+    EventDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'JAI'}),
@@ -133,6 +135,6 @@ export function markedOptions(): MarkedOptions {
   ],
   providers: [{provide: LOCALE_ID, useValue: 'da-DA' } ],
   bootstrap: [AppComponent],
-  entryComponents: [FacebookPagePluginComponent, PostDetailComponent]
+  entryComponents: [FacebookPagePluginComponent, PostDetailComponent, EventDetailsComponent]
 })
 export class AppModule { }

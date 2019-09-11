@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamelinkService } from '../flamelink.service';
 import { HelperService } from '../helper.service';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { DataService } from '../data.service';
+import { EventDetailsComponent } from '../event-details/event-details.component';
 
 
 @Component({
@@ -20,7 +23,7 @@ export class ActivitiesComponent implements OnInit {
 
   displayedColumns: string[] = ['time', 'home', 'away', 'refTable'];
 
-  constructor(private _fl: FlamelinkService, private helper: HelperService) {}
+  constructor(private _fl: FlamelinkService, private helper: HelperService, private dialog: MatDialog, private _ds: DataService) {}
 
 
   ngOnInit() {
@@ -88,5 +91,18 @@ export class ActivitiesComponent implements OnInit {
       const tmp = Object.keys(data).map(key => data[ key ]);
       this.refTable = this.helper.clientSideFilterSort(tmp)[0];
     });
+  }
+
+  openDialog(post) {
+
+    const dialogConfig = new MatDialogConfig();
+    this._ds.setData(post);
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.maxWidth = '90vw';
+    dialogConfig.width = '98%';
+    dialogConfig.height = '95%';
+
+    this.dialog.open(EventDetailsComponent, dialogConfig);
   }
 }

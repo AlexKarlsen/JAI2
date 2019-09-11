@@ -6,6 +6,8 @@ import { HelperService } from '../helper.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PostDetailComponent } from '../post-detail/post-detail.component';
 
+import { GoogleAnalyticsService } from '../google-analytics.service';
+
 @Component({
   selector: 'app-post-archive',
   templateUrl: './post-archive.component.html',
@@ -23,7 +25,8 @@ export class PostArchiveComponent implements OnInit {
     private _ds: DataService,
     private router: Router,
     private helper: HelperService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private googleAnalyticsService: GoogleAnalyticsService
   ) { }
 
   ngOnInit() {
@@ -74,5 +77,10 @@ export class PostArchiveComponent implements OnInit {
     dialogConfig.height = '95%';
 
     this.dialog.open(PostDetailComponent, dialogConfig);
+  }
+
+  SendLikeEvent() {
+    // We call the event emmiter function from our service and pass in the details
+    this.googleAnalyticsService.eventEmitter('userPage', 'like', 'userLabel', 1);
   }
 }

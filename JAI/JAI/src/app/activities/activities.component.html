@@ -62,7 +62,10 @@
         </div>
       </mat-expansion-panel-header>
       {{party.description}}
-      <button mat-stroked-button routerLink="/parties">Kommende JAI arrangement</button>
+      <div fxLayoutAlign="space-evenly">
+        <button mat-stroked-button (click)="openDialog(party)" [class.selected]="party === selectedParty">Se begivenhed</button>
+        <button mat-stroked-button routerLink="/events">Kommende JAI arrangement</button>
+      </div>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="common" hideToggle>

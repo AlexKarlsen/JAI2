@@ -1,4 +1,4 @@
-<mat-card *ngIf="matches; else loading">
+<mat-card class="container" *ngIf="matches; else loading">
     <mat-card-title>Kommende Kampe</mat-card-title>
     <div *ngFor="let match of matches">
         {{match.date | date: 'fullDate':''}}

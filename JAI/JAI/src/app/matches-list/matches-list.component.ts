@@ -5,7 +5,7 @@ import { HelperService } from '../helper.service';
 @Component({
   selector: 'app-matches-list',
   templateUrl: './matches-list.component.html',
-  styleUrls: ['./matches-list.component.scss']
+  styleUrls: ['./matches-list.component.css']
 })
 export class MatchesListComponent implements OnInit {
 
@@ -19,7 +19,10 @@ export class MatchesListComponent implements OnInit {
             console.error(error);
           }
           const tmp = Object.keys(data).map(key => data[ key ]);
-          this.matches = this.helper.clientSideFilterSort(tmp);
+
+          this.matches = this.helper.clientSideRemoveExpired(tmp);
+
+          this.matches = this.helper.clientSideSortDescending(this.matches);
           console.log(this.matches);
         });
   }
