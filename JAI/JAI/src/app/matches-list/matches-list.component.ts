@@ -22,7 +22,7 @@ export class MatchesListComponent implements OnInit {
 
           this.matches = this.helper.clientSideRemoveExpired(tmp);
 
-          this.matches = this.helper.clientSideSortDescending(this.matches);
+          this.matches = this.helper.clientSideSortAscending(this.matches);
           console.log(this.matches);
         });
   }

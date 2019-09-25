@@ -18,13 +18,21 @@ mat-panel-title {
     margin: 0 1em 0 1em;
   }
 
+  a {
+    color: black;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
 mat-expansion-panel-header {
     // display: flex;
     justify-content: space-between;
     align-content: center;
     align-items: center;
     padding: 5px 5px 0 5px;
-    width: 90%;
+    width: 100%;
   }
 
 table {

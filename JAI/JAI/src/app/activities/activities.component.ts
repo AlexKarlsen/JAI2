@@ -37,7 +37,6 @@ export class ActivitiesComponent implements OnInit {
       }
 
       this.content = data;
-      console.log(this.content);
     });
 
     // Get next party
@@ -46,9 +45,10 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
 
-      const tmp = Object.keys(data).map(key => data[ key ]);
+      let tmp = Object.keys(data).map(key => data[ key ]);
       console.log(tmp);
-      this.party = this.helper.clientSideFilterSort(tmp)[0];
+      tmp = this.helper.clientSideRemoveExpired(tmp);
+      this.party = this.helper.clientSideSortAscending(tmp)[0];
     });
 
     // Get next common activity
@@ -57,8 +57,10 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
 
-      const tmp = Object.keys(data).map(key => data[ key ]);
-      this.common = this.helper.clientSideFilterSort(tmp)[0];
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      console.log(tmp);
+      tmp = this.helper.clientSideRemoveExpired(tmp);
+      this.common = this.helper.clientSideSortAscending(tmp)[0];
     });
 
     // Get the next game
@@ -67,8 +69,9 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
 
-      const games = Object.keys(data).map(key => data[ key ]);
-      this.nextGame = this.helper.clientSideSortDescending(games)[0];
+      let games = Object.keys(data).map(key => data[ key ]);
+      games = this.helper.clientSideRemoveExpired(games);
+      this.nextGame = this.helper.clientSideSortAscending(games)[0];
       console.log(this.nextGame);
     });
 
@@ -78,19 +81,21 @@ export class ActivitiesComponent implements OnInit {
         console.error(error);
       }
 
-      const tmp = Object.keys(data).map(key => data[ key ]);
-      this.work = this.helper.clientSideFilterSort(tmp)[0];
+      let tmp = Object.keys(data).map(key => data[ key ]);
+      console.log(tmp);
+      tmp = this.helper.clientSideRemoveExpired(tmp);
+      this.work = this.helper.clientSideSortAscending(tmp)[0];
     });
 
     // Referee Table
-    this._fl.getApp().content.subscribe('refTable', (error, data) => {
-      if (error) {
-        console.error(error);
-      }
+    // this._fl.getApp().content.subscribe('refTable', (error, data) => {
+    //   if (error) {
+    //     console.error(error);
+    //   }
 
-      const tmp = Object.keys(data).map(key => data[ key ]);
-      this.refTable = this.helper.clientSideFilterSort(tmp)[0];
-    });
+    //   const tmp = Object.keys(data).map(key => data[ key ]);
+    //   this.refTable = this.helper.clientSideSortAscending(tmp)[0];
+    // });
   }
 
   openDialog(post) {

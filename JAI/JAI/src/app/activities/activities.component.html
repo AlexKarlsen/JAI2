@@ -13,40 +13,39 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
-      {{nextGame.date | date: 'fullDate':''}}
-      <table mat-table [dataSource]="nextGame.games">
-
+      <h4  fxLayoutAlign="flex-start center">{{nextGame.date | date: 'fullDate':''}}</h4>
+      <table mat-table [dataSource]="nextGame.games" >
+  
         <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="time">
-          <th mat-header-cell *matHeaderCellDef> Kl. </th>
-          <td mat-cell *matCellDef="let element"> {{element.time | slice:0:5}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="home">
-          <th mat-header-cell *matHeaderCellDef> JAI </th>
-          <td mat-cell *matCellDef="let element"> {{element.home}} </td>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="away">
-          <th mat-header-cell *matHeaderCellDef> Ude </th>
-          <td mat-cell *matCellDef="let element"> {{element.away}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="refTable">
-          <th mat-header-cell *matHeaderCellDef> Dommerbord </th>
-          <td mat-cell *matCellDef="let element"> {{element.refTable}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <!-- Position Column -->
+          <ng-container matColumnDef="time" >
+            <th mat-header-cell *matHeaderCellDef fxFlex="25%" fxFlex.lt-md="15%" fxLayoutAlign="flex-start center"> Kl. </th>
+            <td mat-cell *matCellDef="let element" fxFlex="25%" fxFlex.lt-md="15%" fxLayoutAlign="flex-start center"> {{element.time | slice:0:5}} </td>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="home" >
+            <th mat-header-cell *matHeaderCellDef  fxFlex="25%"  fxFlex.lt-md="37.5%" fxLayoutAlign="flex-start center"> JAI </th>
+            <td mat-cell *matCellDef="let element" fxFlex="25%" fxFlex.lt-md="37.5%" fxLayoutAlign="flex-start center"> {{element.home}} </td>
+          </ng-container>
+  
+          <!-- Weight Column -->
+          <ng-container matColumnDef="away">
+            <th mat-header-cell *matHeaderCellDef fxFlex="25%"  fxFlex.lt-md="37.5%" fxLayoutAlign="flex-start center"> Ude </th>
+            <td mat-cell *matCellDef="let element" fxFlex="25%"  fxFlex.lt-md="37.5%" fxLayoutAlign="flex-start center"> {{element.away}} </td>
+          </ng-container>
+  
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="refTable" >
+            <th mat-header-cell *matHeaderCellDef fxFlex="25%"  fxFlex.lt-md="20%" fxLayoutAlign="flex-start center"> Dommerbord </th>
+            <td mat-cell *matCellDef="let element" fxFlex="25%" fxFlex.lt-md="20%" fxLayoutAlign="flex-start center"> {{element.refTable}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <button mat-stroked-button color="primary" routerLink="/matches">Kommende Kampe</button>
+      <button mat-stroked-button routerLink="/matches">Kommende Kampe</button>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="party" hideToggle>
@@ -61,10 +60,11 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
+      <h4 style="margin-bottom: 0">Fester</h4>
       {{party.description}}
       <div fxLayoutAlign="space-evenly">
-        <button mat-stroked-button (click)="openDialog(party)" [class.selected]="party === selectedParty">Se begivenhed</button>
-        <button mat-stroked-button routerLink="/events">Kommende JAI arrangement</button>
+        <button mat-stroked-button (click)="openDialog(party)" [class.selected]="party === selectedParty">Lære mere</button>
+        <button mat-stroked-button routerLink="/events">Kommende</button>
       </div>
     </mat-expansion-panel>
 
@@ -80,6 +80,7 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
+      <h4 style="margin-bottom: 0">Fælles arrangementer</h4>
       {{common.description}}
     </mat-expansion-panel>
 
@@ -96,13 +97,15 @@
         </div>
       </mat-expansion-panel-header>
       <div fxLayout="column">
+        <h4 style="margin-bottom: 0">Fivillig arbejde</h4>
         <div>
           {{work.description}}
         </div>
         <div fxLayout="row" style="justify-content: space-evenly">
-          <button mat-raised-button routerLink="/work">Flere</button>
-          <button mat-raised-button><a href="{{work.link}}">Læs mere</a></button>
-          <button mat-raised-button><a href="{{work.link}}">Tilmelding</a></button>
+
+          <button mat-stroked-button><a href="{{work.link}}">Læs mere</a></button>
+          <button mat-stroked-button><a href="{{work.link}}">Tilmelding</a></button>
+          <button mat-stroked-button routerLink="/work">Flere</button>
         </div>
       </div>
     </mat-expansion-panel>

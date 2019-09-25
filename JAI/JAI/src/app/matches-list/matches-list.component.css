@@ -1,9 +1,9 @@
 table {
-  font-size: xx-small;
   border-spacing: 0;
   border-collapse: collapse;
   margin-bottom: 16px;
   width: 100%;
+  
 }
 
 .mat-cell {
@@ -17,9 +17,10 @@ td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:
 
 td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
   padding-right: 0px;
-}
+} 
 
 .container {
   max-width: 1024px !important;
   margin: 0 auto;
 }
+
