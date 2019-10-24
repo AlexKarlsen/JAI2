@@ -33,3 +33,7 @@
   padding: 0!important;
 }
 
+mat-card {
+  padding: 4em;
+}
+

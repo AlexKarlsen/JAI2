@@ -36,7 +36,10 @@
     <h2>Nyheder</h2>
     <article [class.selected]="displayPost === selectedPost" (click)="openDialog(displayPost)">
       <h3>{{displayPost.title}}</h3>
-      <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
+      <div fxLayoutAlign="center">
+        <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
+      </div>
+      
       <p>{{displayPost.summary}}</p>
       <div class="author">
         <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
