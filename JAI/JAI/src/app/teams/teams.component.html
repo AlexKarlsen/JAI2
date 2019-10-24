@@ -59,7 +59,7 @@
           <div class="title">
             <h4>Trænere</h4>
           </div>
-          <mat-list fxLayout.gt-xs="row">
+          <mat-list fxLayout.gt-xs="row wrap">
             <mat-list-item  *ngFor="let coach of team.coach1">
               <span matLine>{{coach.name}}</span>
               <img matListAvatar />
@@ -115,7 +115,7 @@
           <div class="title">
             <h4>Trænere</h4>
           </div>
-          <mat-list fxLayout.gt-xs="row">
+          <mat-list fxLayout.gt-xs="row wrap">
             <mat-list-item *ngFor="let coach of team.coach2">
               <span matLine>{{coach.name}}</span>
               <img matListAvatar />
