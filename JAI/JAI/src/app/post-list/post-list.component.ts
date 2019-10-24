@@ -62,6 +62,7 @@ export class PostListComponent implements OnInit {
       dialogConfig.maxWidth = '98vw';
       dialogConfig.width = '98%';
       dialogConfig.height = '95%';
+      dialogConfig.panelClass = 'app-full-bleed-dialog';
     }
 
     this.dialog.open(PostDetailComponent, dialogConfig);

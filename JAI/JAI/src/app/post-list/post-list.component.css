@@ -1,3 +1,4 @@
+
 .container {
     box-sizing: border-box;
     max-width: 1024px;
@@ -14,6 +15,10 @@
     font-size: 15px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.54);
+  }
+
+  .app-full-bleed-dialog .mat-dialog-container {
+    font-size: x-small !important;
   }
 
   .post {

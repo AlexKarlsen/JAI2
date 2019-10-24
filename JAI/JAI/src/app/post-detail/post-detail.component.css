@@ -4,4 +4,26 @@ article, .card {
     box-sizing: border-box;
     flex: 1;
     margin: 0 auto;
+    font-size: small;
+  }
+
+  @media screen and (min-width:800px){
+    .card{
+      font-size: smaller !important;
+      padding: 15px 10px !important;
+  }
+  } 
+
+  img {
+    width: 100%;
+  }
+
+  .justify-text {
+    text-align: justify; 
+    text-justify: newspaper;
+    hyphens: auto;
+  }
+
+  .mat-stroked-button {
+    margin: 1em;
   }
