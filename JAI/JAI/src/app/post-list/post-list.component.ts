@@ -17,8 +17,8 @@ export class PostListComponent implements OnInit {
   slideConfig;
   displayPost;
   constructor(private _fl: FlamelinkService, private _ds: DataService, private _router: Router, private dialog: MatDialog) {
-    this.mobHeight = (window.screen.height) + 'px';
-    this.mobWidth = (window.screen.width) + 'px';
+    this.mobHeight = window.screen.height;
+    this.mobWidth = window.screen.width;
   }
 
   ngOnInit() {
@@ -55,10 +55,14 @@ export class PostListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     this._ds.setData(post);
     dialogConfig.autoFocus = true;
-
-    dialogConfig.maxWidth = '98vw';
-    dialogConfig.width = '98%';
-    dialogConfig.height = '95%';
+    console.log(this.mobWidth);
+    if (this.mobWidth > 1024) {
+      dialogConfig.maxWidth = '1000px';
+    } else {
+      dialogConfig.maxWidth = '98vw';
+      dialogConfig.width = '98%';
+      dialogConfig.height = '95%';
+    }
 
     this.dialog.open(PostDetailComponent, dialogConfig);
   }

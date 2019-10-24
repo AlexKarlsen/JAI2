@@ -1,7 +1,8 @@
-<article class="card" *ngIf="post" fxFlexLayout="column" fxLayoutWrap>
+<article class="card" *ngIf="post" fxFlexAlign="center">
   <div class="title">
     <h1>{{ post.title }} </h1>
   </div>
+  <img *ngFor="let img of post.mainImage" src="{{ img.url }}" alt="">
   <div class="sub-title">
     <h4>
       <time>

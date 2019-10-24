@@ -20,6 +20,9 @@ export class PostArchiveComponent implements OnInit {
   loadCount: number = this.LOAD_COUNT_NUMBER;
   noMore: Boolean = false;
 
+  mobWidth;
+  mobHeight;
+
   constructor(
     private _fl: FlamelinkService,
     private _ds: DataService,
@@ -27,7 +30,10 @@ export class PostArchiveComponent implements OnInit {
     private helper: HelperService,
     private dialog: MatDialog,
     private googleAnalyticsService: GoogleAnalyticsService
-  ) { }
+  ) {
+    this.mobHeight = window.screen.height;
+    this.mobWidth = window.screen.width;
+   }
 
   ngOnInit() {
     this.loadNumberOfPosts(this.LOAD_COUNT_NUMBER);
@@ -72,9 +78,13 @@ export class PostArchiveComponent implements OnInit {
     this._ds.setData(post);
     dialogConfig.autoFocus = true;
 
-    dialogConfig.maxWidth = '90vw';
-    dialogConfig.width = '98%';
-    dialogConfig.height = '95%';
+    if (this.mobWidth > 1024) {
+      dialogConfig.maxWidth = '1000px';
+    } else {
+      dialogConfig.maxWidth = '98vw';
+      dialogConfig.width = '98%';
+      dialogConfig.height = '95%';
+    }
 
     this.dialog.open(PostDetailComponent, dialogConfig);
   }

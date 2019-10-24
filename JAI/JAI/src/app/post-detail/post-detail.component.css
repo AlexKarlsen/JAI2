@@ -3,4 +3,5 @@ article, .card {
     height: 100%;
     box-sizing: border-box;
     flex: 1;
+    margin: 0 auto;
   }
