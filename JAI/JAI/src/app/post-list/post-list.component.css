@@ -32,8 +32,8 @@
 :host /deep/ .mat-list-item-content {
   padding: 0!important;
 }
-
-mat-card {
-  padding: 4em;
+@media screen and (min-width:1000px){
+  mat-card {
+    padding: 4em;
+  }
 }
-
