@@ -1,3 +1,7 @@
+<div class="banner-container">
+  <img class="banner" width="100%" src="../../assets/img/jumbotron.jpg" />
+</div>
+
 <div class="container" *ngIf="content; else loading">
   <!-- variable binding -->
   <h2 class=title>
@@ -10,21 +14,21 @@
 
     {{content.social.title}}
   </h2>
-  <div class="justify-text">
+  <markdown class="justify-text">
     {{content.social.content}}
-  </div>
+  </markdown>
   <h2 class="subtitle">
     {{content.comitees.title}}
   </h2>
-  <div class="justify-text">
+  <markdown class="justify-text">
     {{content.comitees.content}}
-  </div>
+  </markdown>
   <h2 class="subtitle">
     {{content.history.title}}
   </h2>
-  <div class="justify-text">
+  <markdown class="justify-text">
     {{content.history.content}}
-  </div>
+  </markdown>
 </div>
 
 <ng-template #loading>

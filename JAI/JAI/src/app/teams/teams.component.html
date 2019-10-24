@@ -1,4 +1,9 @@
+<div class="banner-container">
+    <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+  </div>
+
 <section class="container" *ngIf="teams">
+    
   <h1 class="header">
     Vores Hold
   </h1>
@@ -54,8 +59,8 @@
           <div class="title">
             <h4>Trænere</h4>
           </div>
-          <mat-list>
-            <mat-list-item *ngFor="let coach of team.coach1">
+          <mat-list fxLayout.gt-xs="row">
+            <mat-list-item  *ngFor="let coach of team.coach1">
               <span matLine>{{coach.name}}</span>
               <img matListAvatar />
               <p matLine><a href="tel:{{coach.phone}}">{{coach.phone}}</a></p>
@@ -110,7 +115,7 @@
           <div class="title">
             <h4>Trænere</h4>
           </div>
-          <mat-list>
+          <mat-list fxLayout.gt-xs="row">
             <mat-list-item *ngFor="let coach of team.coach2">
               <span matLine>{{coach.name}}</span>
               <img matListAvatar />

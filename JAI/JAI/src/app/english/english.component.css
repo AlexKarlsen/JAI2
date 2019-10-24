@@ -2,3 +2,14 @@
     max-width: 1024px !important;
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        padding: 0 1em 0 1em;
+    }
+  }
+
+  .banner-container {
+    max-width: 1024px !important;
+    margin: 0 auto;
+}

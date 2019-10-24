@@ -31,33 +31,41 @@
   </mat-list>
 </mat-card> -->
 
-<div class="post" *ngIf="posts; else loading">
-  <article [class.selected]="displayPost === selectedPost" (click)="openDialog(displayPost)">
-    <h3>{{displayPost.title}}</h3>
-    <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
-    <p>{{displayPost.summary}}</p>
-    <div class="author">
-      <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
-    </div>
-  </article>
-  <h3>
-    Andre nyheder
-  </h3>
-  <mat-list>
+<div class="post" *ngIf="posts; else loading" fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="95%">
+    <h2>Nyheder</h2>
+    <article [class.selected]="displayPost === selectedPost" (click)="openDialog(displayPost)">
+      <h3>{{displayPost.title}}</h3>
+      <img *ngFor="let img of displayPost.mainImage" src="{{ img.url }}" alt="">
+      <p>{{displayPost.summary}}</p>
+      <div class="author">
+        <p>{{displayPost.author}} {{displayPost.date | date: 'shortDate':''}}</p>
+      </div>
+    </article>
+
+    <h3>
+      Andre nyheder
+    </h3>
+    <mat-list>
       <mat-list-item class="posts" *ngFor="let post of posts" [class.selected]="post === selectedPost"
         (click)="openDialog(post)">
-        <p class="list-item-title">{{ post.title }} </p>
         <img matListAvatar *ngFor="let img of post.mainImage" src="{{ img.url }}" />
-        <time>
-          Opdateret: {{ post.date | date: 'shortDate'}}
-        </time>
+        <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-between">
+          <p class="list-item-title">{{ post.title }} </p>
+
+          <p>
+            <time fxLayoutAlign="flex-end">
+              Opdateret: {{ post.date | date: 'shortDate'}}
+            </time>
+          </p>
+        </div>
       </mat-list-item>
       <div>
         <button mat-button><a routerLink="/newsarchive" routerLinkActive="router-link-active">For flere nyheder se
             nyhedsarkiv</a></button>
       </div>
     </mat-list>
-
+  </mat-card>
 </div>
 
 <ng-template #loading>

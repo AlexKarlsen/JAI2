@@ -24,7 +24,9 @@ export class PartiesComponent implements OnInit {
           }
           const tmp = Object.keys(data).map(key => data[ key ]);
           console.log(tmp);
-          this.parties = this.helper.clientSideSortAscending(tmp);
+          this.parties = this.helper.clientSideRemoveExpired(tmp);
+
+          this.parties = this.helper.clientSideSortAscending(this.parties);
         });
   }
   openDialog(post) {

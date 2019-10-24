@@ -1,21 +1,23 @@
-<mat-card class="container" *ngIf="content">
-  <mat-card-title>
+<div class="banner-container">
+  <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+</div>
+<div class="container" *ngIf="content">
+
     <h1>{{content.title}}</h1>
-  </mat-card-title>
-  <mat-card-content>
+  <div>
     {{content.content}}
 
     <div *ngIf="membersPolitics.title">
-      <mat-card-title>
+      <h2>
         {{membersPolitics.title}}
-      </mat-card-title>
+      </h2>
       <button mat-button *ngIf="!showMembers; else showLess" (click)="toggle('members')">Se mere</button>
 
       <ng-template #showLess>
         <button mat-button (click)="toggle('members')">Luk</button>
-        <mat-card-content>
+
           <div markdown>{{membersPolitics.content}}</div>
-        </mat-card-content>
+
       </ng-template>
     </div>
 
@@ -27,10 +29,9 @@
 
       <ng-template #showLess>
         <button mat-button (click)="toggle('privacy')">Luk</button>
-        <mat-card-content>
           <div markdown>{{privacyPolitics.content}}</div>
-        </mat-card-content>
+
       </ng-template>
     </div>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>

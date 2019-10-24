@@ -1,5 +1,5 @@
-<div class="card" *ngIf="content; else loading">
-  <mat-accordion class="example-headers-align">
+<div class="card" *ngIf="content; else loading" fxLayoutAlign="center center">
+  <mat-accordion fxFlex="95%" >
 
     <mat-expansion-panel *ngIf="nextGame" hideToggle>
       <mat-expansion-panel-header>
@@ -45,7 +45,10 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <button mat-stroked-button routerLink="/matches">Kommende Kampe</button>
+      <div fxLayoutAlign="flex-end">
+         <button mat-stroked-button routerLink="/matches">Kommende Kampe</button>
+      </div>
+     
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="party" hideToggle>
@@ -60,10 +63,12 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
-      <h4 style="margin-bottom: 0">Fester</h4>
-      {{party.description}}
-      <div fxLayoutAlign="space-evenly">
-        <button mat-stroked-button (click)="openDialog(party)" [class.selected]="party === selectedParty">Lære mere</button>
+      <markdown class="justify-text">{{party.description}}</markdown>
+      <br>
+      <strong>Vælg læs mere for at komme til begivenhedens facebook side eller kommende for at se flere kommende JAI fester.</strong> 
+      <div fxLayoutAlign="flex-end">
+        <!-- <button mat-stroked-button (click)="openDialog(party)" [class.selected]="party === selectedParty">Lære mere</button> -->
+        <button mat-stroked-button><a href="party.link">Lære mere</a></button>
         <button mat-stroked-button routerLink="/events">Kommende</button>
       </div>
     </mat-expansion-panel>
@@ -80,7 +85,6 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
-      <h4 style="margin-bottom: 0">Fælles arrangementer</h4>
       {{common.description}}
     </mat-expansion-panel>
 
@@ -97,20 +101,18 @@
         </div>
       </mat-expansion-panel-header>
       <div fxLayout="column">
-        <h4 style="margin-bottom: 0">Fivillig arbejde</h4>
-        <div>
-          {{work.description}}
-        </div>
-        <div fxLayout="row" style="justify-content: space-evenly">
+        <markdown class="justify-text" [data]="work.description"></markdown>
 
-          <button mat-stroked-button><a href="{{work.link}}">Læs mere</a></button>
+        <div fxLayout="row" fxLayoutAlign="flex-end">
+
+          <!-- <button mat-stroked-button><a href="{{work.link}}">Læs mere</a></button> -->
           <button mat-stroked-button><a href="{{work.link}}">Tilmelding</a></button>
-          <button mat-stroked-button routerLink="/work">Flere</button>
+          <button mat-stroked-button routerLink="/work">Kommende</button>
         </div>
       </div>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="refTable" hideToggle>
+    <!-- <mat-expansion-panel *ngIf="refTable" hideToggle>
       <mat-expansion-panel-header>
         <mat-icon>map</mat-icon>
         <mat-panel-title>
@@ -121,8 +123,8 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{refTable[0].description}}
-    </mat-expansion-panel>
-  </mat-accordion>
+    </mat-expansion-panel>-->
+  </mat-accordion> 
 </div>
 
 <ng-template #loading>

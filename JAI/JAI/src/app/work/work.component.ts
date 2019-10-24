@@ -19,7 +19,8 @@ export class WorkComponent implements OnInit {
       }
 
       const tmp = Object.keys(data).map(key => data[ key ]);
-      this.work = this.helper.clientSideSortAscending(tmp);
+      this.work = this.helper.clientSideRemoveExpired(tmp);
+      this.work = this.helper.clientSideSortAscending(this.work);
     });
   }
 

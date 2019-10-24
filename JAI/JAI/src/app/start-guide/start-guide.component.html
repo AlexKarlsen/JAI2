@@ -1,10 +1,12 @@
+<div class="banner-container">
+    <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+  </div>
+
 <div class="container" *ngIf="content">
-  <mat-card>
     <h1>{{content.title}}</h1>
-        <mat-card-content class="justify-text">{{content.content}}</mat-card-content>
-        <app-about></app-about>
-        <app-teams></app-teams>
+        <markdown class="justify-text">{{content.content}}</markdown>
+        <!-- <app-about></app-about>
+        <app-teams></app-teams> -->
         <h2>Her hører vi til</h2>
         <app-map></app-map>
-  </mat-card>
 </div>

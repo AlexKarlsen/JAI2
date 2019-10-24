@@ -7,7 +7,7 @@ import { DataSource } from '@angular/cdk/table';
 @Component({
   selector: 'app-training',
   templateUrl: './training.component.html',
-  styleUrls: ['./training.component.scss'],
+  styleUrls: ['./training.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),

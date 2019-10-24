@@ -1,12 +1,13 @@
+<div class="banner-container">
+    <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+  </div>
 <mat-card class="container">
   <h1>Frivilligt arbejde</h1>
+  <h2>Kommende arrangementer</h2>
   <div *ngFor="let w of work" style="padding: 0 10px 0 10px">
     <mat-card-title>
-      {{w.title}}
+      {{w.title}} -  {{w.date | date: 'shortDate':''}}
     </mat-card-title>
-    <mat-card-subtitle>
-      {{w.date | date: 'shortDate':''}}
-    </mat-card-subtitle>
     <mat-card-content>
       {{w.description}}
     </mat-card-content>

@@ -1,12 +1,13 @@
+<div class="banner-container">
+  <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
+</div>
 <div *ngIf="content">
   <div class="container" fxLayoutGap="2%">
-    <mat-card>
       <h1>{{content.pageTitle}}</h1>
       <div *ngFor="let sponsor of content.sponsors">
-        <img src="{{sponsor.imageUrl}}"/>
-        <mat-card-content>{{sponsor.description}}</mat-card-content>
-        <button mat-raised-button>Besøg Sponsor Website</button>
+        <img class="sponsor-image"src="{{sponsor.imageUrl}}"/>
+        <markdown>{{sponsor.description}}</markdown>
+        <button mat-stroked-button>Besøg Sponsor Website</button>
       </div>
-    </mat-card>
   </div>
 </div>

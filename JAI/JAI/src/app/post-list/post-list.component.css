@@ -2,7 +2,8 @@
     box-sizing: border-box;
     max-width: 1024px;
     width: 100%;
-    padding: 1em;
+    background-color: #f1f1f1;
+    margin: 1em 0 1em 0;
 }
 
   img {
@@ -15,10 +16,20 @@
     color: rgba(0, 0, 0, 0.54);
   }
 
-.post{
-  padding: 1em;
+  .post {
+
+    margin: 1em 0 1em 0;
+  }
+
+  .list-item-title {
+    padding: 0 6px 0 12px;
+  }
+
+  .mat-list-base .mat-list-item.mat-list-item-with-avatar, .mat-list-base .mat-list-option.mat-list-item-with-avatar {
+    height: 70px;
+  }
+
+:host /deep/ .mat-list-item-content {
+  padding: 0!important;
 }
 
-.list-item-title {
-  padding-left: 1em;
-}

@@ -3,6 +3,12 @@ mat-card {
     background-color: #f1f1f1;
 }
 
+button {
+  padding-left: 1em;
+  margin-left: 1em !important;
+  margin-top: 1em !important;
+}
+
 mat-card-title {
     text-transform: uppercase;
 }
@@ -15,7 +21,6 @@ mat-panel-title {
     //height: 100%;
     box-sizing: border-box;
     //flex: 1;
-    margin: 0 1em 0 1em;
   }
 
   a {

@@ -1,15 +1,15 @@
 <div class="banner-container">
-  <img class="banner" fxHide.xs="true" width="100%" src="../../assets/img/jumbotron.jpg" />
-  <img class="banner" fxHide.gt-xs="true" width="100%" src="../../assets/img/mobile_banner.jpg" />
+  <img class="banner" width="100%" src="../../assets/img/jumbotron.jpg" />
+  <!-- <img class="banner" fxHide.gt-xs="true" width="100%" src="../../assets/img/mobile_banner.jpg" /> -->
   <div *ngIf="content">
     <div class="top-center">
-      <h2>{{content.title}}</h2>
+      <h2 class="welcom-text">{{content.title}}</h2>
     </div>
     <div class="bottom-center">
-      <h3>{{content.subtitle}}</h3>
+      <h3 class="welcome-text">{{content.subtitle}}</h3>
     </div>
   </div>
-  <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div>
+  <!-- <div fxHide.gt-xs="true" class="center-center-xs"><img src="../../assets/icon/JAI_logo.png"></div> -->
 </div>
 
 
@@ -29,7 +29,7 @@
   </div>
 
   <section class="container news">
-    <h2>Nyheder</h2>
+
     <app-post-list></app-post-list>
   </section>
 

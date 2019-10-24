@@ -56,7 +56,7 @@ export class PostListComponent implements OnInit {
     this._ds.setData(post);
     dialogConfig.autoFocus = true;
 
-    dialogConfig.maxWidth = '80vw';
+    dialogConfig.maxWidth = '98vw';
     dialogConfig.width = '98%';
     dialogConfig.height = '95%';
 

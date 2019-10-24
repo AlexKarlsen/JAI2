@@ -9,7 +9,7 @@
             <address>
                 <h3>{{marker.name}}</h3>
                 <p>{{marker.address}}</p>
-                <button mat-raised-button color="accent"><a [href]="marker.mapsLink" target="_blank" >Find vej</a></button>
+                <a [href]="marker.mapsLink" target="_blank" ><button mat-stroked-button>Find vej</button></a>
             </address>
         </agm-info-window>
     </agm-marker>
